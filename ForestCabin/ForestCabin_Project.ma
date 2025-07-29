@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: ForestCabin_Project.ma
-//Last modified: Mon, Jul 28, 2025 06:30:31 PM
+//Last modified: Mon, Jul 28, 2025 06:46:10 PM
 //Codeset: 1252
 requires maya "2024";
 requires -nodeType "polyBoolean" "polyBoolean" "1.1";
@@ -13,23 +13,23 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 26100)";
-fileInfo "UUID" "529930CF-4F2B-C084-9B86-1DB755B93272";
+fileInfo "UUID" "D81113C4-486A-8B36-4C32-B48C7FBD69ED";
 createNode transform -s -n "persp";
 	rename -uid "B0A827F5-C642-EBC8-1955-87A08553B23E";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 16.97820337384557 10.780536010522303 -16.716148651332862 ;
-	setAttr ".r" -type "double3" -33.135610317189922 -593.79999999981021 0 ;
+	setAttr ".t" -type "double3" 35.026491538812756 9.5669896320734598 2.2044812856064246 ;
+	setAttr ".r" -type "double3" -15.73561031740239 -275.40000000000111 0 ;
 	setAttr ".rp" -type "double3" -1.4432899320127035e-15 -8.8817841970012523e-16 0 ;
 	setAttr ".rpt" -type "double3" 2.107780754256966e-15 9.6500195396530987e-16 5.9378379784452702e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "656D4FC0-DF4F-F736-8176-E1857081243C";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 16.821854029644044;
+	setAttr ".coi" 26.585684389291579;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 5.4806950092315674 1.6686110496520996 -8.0274531588856686 ;
+	setAttr ".tp" -type "double3" 10.506073746818627 1.1824387746703131 2.8314075264411787 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	rename -uid "B62200A8-624F-38BA-9FDC-2D8CB9AF4DD5";
@@ -30924,6 +30924,7 @@ createNode mesh -n "AxeHandleShape" -p "AxeHandle";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "FenceLamp";
 	rename -uid "60708FDA-0E45-D896-B915-45AA4B58C66A";
+	setAttr ".t" -type "double3" 0 0 5.5841181478791704 ;
 	setAttr ".rp" -type "double3" 10.475993220278387 1.2848177314637934 -2.7323361760933 ;
 	setAttr ".sp" -type "double3" 10.475993220278387 1.2848177314637934 -2.7323361760933 ;
 createNode transform -n "FenceNail" -p "|FenceLamp";
@@ -48396,7 +48397,7 @@ createNode areaLight -n "areaLightShape1" -p "areaLight1";
 	setAttr ".in" 20.666666030883789;
 createNode transform -n "LampLight";
 	rename -uid "9CB44076-934F-4AF0-2D89-688C33773380";
-	setAttr ".t" -type "double3" 10.506073746818627 1.1824387746703129 -2.729636565781473 ;
+	setAttr ".t" -type "double3" 10.506073746818627 1.1824387746703129 2.8544815820977001 ;
 createNode pointLight -n "LampLightShape" -p "LampLight";
 	rename -uid "141B4BE4-A042-24DB-6A2A-2691866E32B1";
 	setAttr -k off ".v";
@@ -50388,7 +50389,7 @@ createNode groupId -n "groupId59";
 	rename -uid "BDF8A0B2-491C-3507-17D4-2BB03B253BE4";
 	setAttr ".ihi" 0;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "A971FDB4-4988-7464-4E06-2A84260BA12E";
+	rename -uid "206C2D68-4905-45A9-FD84-00B8C0141CB9";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 107;
