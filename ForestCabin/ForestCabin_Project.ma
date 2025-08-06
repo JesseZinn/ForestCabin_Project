@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: ForestCabin_Project.ma
-//Last modified: Fri, Aug 01, 2025 06:01:54 PM
+//Last modified: Tue, Aug 05, 2025 07:04:34 PM
 //Codeset: 1252
 requires maya "2024";
 requires -nodeType "polyBoolean" "polyBoolean" "1.1";
@@ -13,21 +13,21 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 26100)";
-fileInfo "UUID" "0280BFDE-4E3A-C53E-5D4D-AAB3573ABB78";
+fileInfo "UUID" "6B771537-48CE-28CE-23CA-3F8E990A27AC";
 createNode transform -s -n "persp";
 	rename -uid "B0A827F5-C642-EBC8-1955-87A08553B23E";
-	setAttr ".t" -type "double3" 42.246118991215518 24.894864279741991 -15.680571280160409 ;
-	setAttr ".r" -type "double3" -27.599999999979758 106.39999999993516 0 ;
+	setAttr ".t" -type "double3" 8.3570503270749636 13.616037298765136 0.94302361578154814 ;
+	setAttr ".r" -type "double3" -51.599999999996896 83.199999999991135 2.6861892611793157e-14 ;
 	setAttr ".rpt" -type "double3" -1.624384230004704e-15 -1.5890198514135874e-15 3.9240491790217909e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "656D4FC0-DF4F-F736-8176-E1857081243C";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 46.95492769131269;
+	setAttr ".coi" 10.829294450849599;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 3.6359300535185142 0.76353114418997592 -8.8763811444796765 ;
+	setAttr ".tp" -type "double3" 1.4912643864501929 5.4513621732346182 0 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	rename -uid "B62200A8-624F-38BA-9FDC-2D8CB9AF4DD5";
@@ -57,7 +57,7 @@ createNode camera -s -n "frontShape" -p "front";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".coi" 966.34370914726185;
-	setAttr ".ow" 1.2877387871908206;
+	setAttr ".ow" 18.446480512224618;
 	setAttr ".imn" -type "string" "front";
 	setAttr ".den" -type "string" "front_depth";
 	setAttr ".man" -type "string" "front_mask";
@@ -157,6 +157,7 @@ createNode textureDeformerHandle -n "textureDeformerHandle1";
 	setAttr ".t" -type "double3" 0 -36.385701851164015 0 ;
 createNode transform -n "OG_Cabin";
 	rename -uid "F44741F8-4589-BC36-E56E-FC9D6DD13D37";
+	setAttr ".t" -type "double3" 0.50344965131203878 0 0.22388836970649351 ;
 	setAttr ".rp" -type "double3" 13.906895761421588 3.4195015430450368 35.471215977347953 ;
 	setAttr ".sp" -type "double3" 13.906895761421588 3.4195015430450368 35.471215977347953 ;
 createNode transform -n "Window01" -p "OG_Cabin";
@@ -1092,7 +1093,7 @@ createNode mesh -n "RoofWoodBeamShape5" -p "RoofWoodBeam5";
 createNode transform -n "Cabin" -p "OG_Cabin";
 	rename -uid "E486920E-BC44-C308-335A-EF91879F374A";
 	setAttr ".t" -type "double3" 12.475117219852766 2.2898349761962802 35.458441509879691 ;
-createNode transform -n "CabinDoor" -p "Cabin";
+createNode transform -n "CabinDoor" -p "|OG_Cabin|Cabin";
 	rename -uid "72D4A727-9649-B9E4-15B6-86BA7CFA020B";
 	setAttr ".rp" -type "double3" 2.2499999318161681 -1.4018037319183314 0.5890721468722776 ;
 	setAttr ".sp" -type "double3" 2.2499999318161681 -1.4018037319183314 0.5890721468722776 ;
@@ -1147,7 +1148,7 @@ createNode mesh -n "CabinDoorShape" -p "CabinDoor";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "CabinRoof" -p "Cabin";
+createNode transform -n "CabinRoof" -p "|OG_Cabin|Cabin";
 	rename -uid "3A17DC65-1943-769B-012E-6DB04963A8CB";
 	setAttr ".rp" -type "double3" -1.1920928955078125e-07 2.4320728778839111 0 ;
 	setAttr ".sp" -type "double3" -1.1920928955078125e-07 2.4320728778839111 0 ;
@@ -1800,7 +1801,7 @@ createNode mesh -n "CabinRoofShape" -p "CabinRoof";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "Chimney" -p "Cabin";
+createNode transform -n "Chimney" -p "|OG_Cabin|Cabin";
 	rename -uid "580BEED6-6B43-6229-5BDD-D09BAFD70CC1";
 	setAttr ".t" -type "double3" 2.8495995316544249 -2.2898349761962873 0 ;
 createNode transform -n "ChimneyBarrel" -p "Chimney";
@@ -1959,7 +1960,7 @@ createNode mesh -n "ChimneyTopShape" -p "ChimneyTop";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "CabinFoundation" -p "Cabin";
+createNode transform -n "CabinFoundation" -p "|OG_Cabin|Cabin";
 	rename -uid "E0774A13-A245-4442-C95A-5D97B923A7E2";
 	setAttr ".t" -type "double3" -0.15040046834557508 -1.8458193687140221 0.024620755101732783 ;
 	setAttr ".s" -type "double3" 7.9790483386595925 0.88803121496453052 9.9507584897965362 ;
@@ -2015,7 +2016,7 @@ createNode mesh -n "CabinFoundationShape" -p "CabinFoundation";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "CabinCutouts" -p "Cabin";
+createNode transform -n "CabinCutouts" -p "|OG_Cabin|Cabin";
 	rename -uid "E8D5EC6D-D047-B690-D07C-A69A37CF0375";
 createNode transform -n "CabinBaseCutout" -p "CabinCutouts";
 	rename -uid "F59D1C95-7746-9E7A-C757-E2B5A1A6A489";
@@ -8398,6 +8399,8 @@ createNode transform -n "RoofTiles01" -p "OG_Cabin";
 	setAttr ".t" -type "double3" 15.324716751507189 -7.1054273576010019e-15 35.458441509879691 ;
 createNode transform -n "RoofTile01" -p "RoofTiles01";
 	rename -uid "6EA3A60A-8146-E2E7-C506-9FAB0B8DA45F";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.4501449389077479 5.604190910395114 -3.6267367127671957 ;
 	setAttr ".sp" -type "double3" -2.4501449389077479 5.604190910395114 -3.6267367127671957 ;
 createNode mesh -n "RoofTile01Shape" -p "|OG_Cabin|RoofTiles01|RoofTile01";
@@ -8453,6 +8456,8 @@ createNode mesh -n "RoofTile01Shape" -p "|OG_Cabin|RoofTiles01|RoofTile01";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile02" -p "RoofTiles01";
 	rename -uid "7308E666-7B40-A910-5E2C-17BE041279E7";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.1580004660466576 5.1798810218345075 -3.2626336619367802 ;
 	setAttr ".sp" -type "double3" -2.1580004660466576 5.1798810218345075 -3.2626336619367802 ;
 createNode mesh -n "RoofTile02Shape" -p "|OG_Cabin|RoofTiles01|RoofTile02";
@@ -8508,6 +8513,8 @@ createNode mesh -n "RoofTile02Shape" -p "|OG_Cabin|RoofTiles01|RoofTile02";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile03" -p "RoofTiles01";
 	rename -uid "1BBBA579-6C40-3960-6157-BDB20C138C01";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.8549243834476361 4.8042263104208072 -3.6267367127671957 ;
 	setAttr ".sp" -type "double3" -1.8549243834476361 4.8042263104208072 -3.6267367127671957 ;
 createNode mesh -n "RoofTile03Shape" -p "|OG_Cabin|RoofTiles01|RoofTile03";
@@ -8563,6 +8570,8 @@ createNode mesh -n "RoofTile03Shape" -p "|OG_Cabin|RoofTiles01|RoofTile03";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile04" -p "RoofTiles01";
 	rename -uid "D0D7EDA3-4E44-6777-C254-55BA9BD588AA";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.5316283394202184 4.4873564160765795 -3.4779025203402743 ;
 	setAttr ".sp" -type "double3" -1.5316283394202184 4.4873564160765795 -3.4779025203402743 ;
 createNode mesh -n "RoofTile04Shape" -p "|OG_Cabin|RoofTiles01|RoofTile04";
@@ -8618,6 +8627,8 @@ createNode mesh -n "RoofTile04Shape" -p "|OG_Cabin|RoofTiles01|RoofTile04";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile05" -p "RoofTiles01";
 	rename -uid "117ABAF7-DE4E-C651-17AF-EFA5A9798E7A";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.1496215239557381 4.2205619337030109 -3.6267367127671957 ;
 	setAttr ".sp" -type "double3" -1.1496215239557381 4.2205619337030109 -3.6267367127671957 ;
 createNode mesh -n "RoofTile05Shape" -p "|OG_Cabin|RoofTiles01|RoofTile05";
@@ -8673,6 +8684,8 @@ createNode mesh -n "RoofTile05Shape" -p "|OG_Cabin|RoofTiles01|RoofTile05";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile06" -p "RoofTiles01";
 	rename -uid "7949474D-2D4B-7FE5-1CD7-AE878FF57A0B";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.7074563847483456 4.0055988202775863 -3.3380927027427485 ;
 	setAttr ".sp" -type "double3" -0.7074563847483456 4.0055988202775863 -3.3380927027427485 ;
 createNode mesh -n "RoofTile06Shape" -p "|OG_Cabin|RoofTiles01|RoofTile06";
@@ -8728,6 +8741,8 @@ createNode mesh -n "RoofTile06Shape" -p "|OG_Cabin|RoofTiles01|RoofTile06";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile07" -p "RoofTiles01";
 	rename -uid "9913CEA7-2443-AA2A-FC1D-CF89D7981F14";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.28535031516774451 3.8235954559775447 -3.6267367127671957 ;
 	setAttr ".sp" -type "double3" -0.28535031516774451 3.8235954559775447 -3.6267367127671957 ;
 createNode mesh -n "RoofTile07Shape" -p "|OG_Cabin|RoofTiles01|RoofTile07";
@@ -8783,6 +8798,8 @@ createNode mesh -n "RoofTile07Shape" -p "|OG_Cabin|RoofTiles01|RoofTile07";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile08" -p "RoofTiles01";
 	rename -uid "38DCE7F8-6C41-04EC-FBDD-53BF28F3B046";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.28535031516774451 3.8235954559775447 -3.0962733817636292 ;
 	setAttr ".sp" -type "double3" -0.28535031516774451 3.8235954559775447 -3.0962733817636292 ;
 createNode mesh -n "RoofTile08Shape" -p "|OG_Cabin|RoofTiles01|RoofTile08";
@@ -8838,6 +8855,8 @@ createNode mesh -n "RoofTile08Shape" -p "|OG_Cabin|RoofTiles01|RoofTile08";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile09" -p "RoofTiles01";
 	rename -uid "FE71460F-794C-C62E-3665-C09DCBEF345D";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.7074563847483456 4.0055988202775863 -2.807629371739182 ;
 	setAttr ".sp" -type "double3" -0.7074563847483456 4.0055988202775863 -2.807629371739182 ;
 createNode mesh -n "RoofTile09Shape" -p "|OG_Cabin|RoofTiles01|RoofTile09";
@@ -8893,6 +8912,8 @@ createNode mesh -n "RoofTile09Shape" -p "|OG_Cabin|RoofTiles01|RoofTile09";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile10" -p "RoofTiles01";
 	rename -uid "7D0B18B1-D546-D870-C4CC-3CB91551E06A";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.1496215239557381 4.2205619337030109 -3.0962733817636292 ;
 	setAttr ".sp" -type "double3" -1.1496215239557381 4.2205619337030109 -3.0962733817636292 ;
 createNode mesh -n "RoofTile10Shape" -p "|OG_Cabin|RoofTiles01|RoofTile10";
@@ -8948,6 +8969,8 @@ createNode mesh -n "RoofTile10Shape" -p "|OG_Cabin|RoofTiles01|RoofTile10";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile11" -p "RoofTiles01";
 	rename -uid "8A129F6E-C640-5807-B4BD-899611A19074";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.5316283394202184 4.4873564160765795 -2.9342207786174805 ;
 	setAttr ".sp" -type "double3" -1.5316283394202184 4.4873564160765795 -2.9342207786174805 ;
 createNode mesh -n "RoofTile11Shape" -p "|OG_Cabin|RoofTiles01|RoofTile11";
@@ -9003,6 +9026,8 @@ createNode mesh -n "RoofTile11Shape" -p "|OG_Cabin|RoofTiles01|RoofTile11";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile12" -p "RoofTiles01";
 	rename -uid "DE0E2AB2-2F4B-718F-4950-E1859CC66236";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.8549243834476361 4.8042263104208072 -3.0962733817636292 ;
 	setAttr ".sp" -type "double3" -1.8549243834476361 4.8042263104208072 -3.0962733817636292 ;
 createNode mesh -n "RoofTile12Shape" -p "|OG_Cabin|RoofTiles01|RoofTile12";
@@ -9058,6 +9083,8 @@ createNode mesh -n "RoofTile12Shape" -p "|OG_Cabin|RoofTiles01|RoofTile12";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile13" -p "RoofTiles01";
 	rename -uid "8AA634FF-7140-73C7-D256-1F97736B9327";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.1580004660466576 5.1798810218345075 -2.7321703309332137 ;
 	setAttr ".sp" -type "double3" -2.1580004660466576 5.1798810218345075 -2.7321703309332137 ;
 createNode mesh -n "RoofTile13Shape" -p "|OG_Cabin|RoofTiles01|RoofTile13";
@@ -9113,6 +9140,8 @@ createNode mesh -n "RoofTile13Shape" -p "|OG_Cabin|RoofTiles01|RoofTile13";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile14" -p "RoofTiles01";
 	rename -uid "49C1EC23-7E40-BF3D-002A-DCB0BDCC00D3";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.4501449389077479 5.604190910395114 -3.0962733817636292 ;
 	setAttr ".sp" -type "double3" -2.4501449389077479 5.604190910395114 -3.0962733817636292 ;
 createNode mesh -n "RoofTile14Shape" -p "|OG_Cabin|RoofTiles01|RoofTile14";
@@ -9168,6 +9197,8 @@ createNode mesh -n "RoofTile14Shape" -p "|OG_Cabin|RoofTiles01|RoofTile14";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile15" -p "RoofTiles01";
 	rename -uid "DA6D32F1-B541-DCDA-B6BB-979FA167234F";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.4501449389077479 5.604190910395114 -2.547908093656567 ;
 	setAttr ".sp" -type "double3" -2.4501449389077479 5.604190910395114 -2.547908093656567 ;
 createNode mesh -n "RoofTile15Shape" -p "|OG_Cabin|RoofTiles01|RoofTile15";
@@ -9223,6 +9254,8 @@ createNode mesh -n "RoofTile15Shape" -p "|OG_Cabin|RoofTiles01|RoofTile15";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile16" -p "RoofTiles01";
 	rename -uid "72DBE00A-BF46-F29F-7C5E-5088D2C8C37B";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.1580004660466576 5.1798810218345075 -2.1838050428261515 ;
 	setAttr ".sp" -type "double3" -2.1580004660466576 5.1798810218345075 -2.1838050428261515 ;
 createNode mesh -n "RoofTile16Shape" -p "|OG_Cabin|RoofTiles01|RoofTile16";
@@ -9278,6 +9311,8 @@ createNode mesh -n "RoofTile16Shape" -p "|OG_Cabin|RoofTiles01|RoofTile16";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile17" -p "RoofTiles01";
 	rename -uid "F33AB514-EA42-446F-E504-489EC12FFF80";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.8549243834476361 4.8042263104208072 -2.547908093656567 ;
 	setAttr ".sp" -type "double3" -1.8549243834476361 4.8042263104208072 -2.547908093656567 ;
 createNode mesh -n "RoofTile17Shape" -p "|OG_Cabin|RoofTiles01|RoofTile17";
@@ -9333,6 +9368,8 @@ createNode mesh -n "RoofTile17Shape" -p "|OG_Cabin|RoofTiles01|RoofTile17";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile18" -p "RoofTiles01";
 	rename -uid "96B471AD-BB4C-968A-59AD-54A1D956EC93";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.5316283394202184 4.4873564160765795 -2.3858980452699892 ;
 	setAttr ".sp" -type "double3" -1.5316283394202184 4.4873564160765795 -2.3858980452699892 ;
 createNode mesh -n "RoofTile18Shape" -p "|OG_Cabin|RoofTiles01|RoofTile18";
@@ -9388,6 +9425,8 @@ createNode mesh -n "RoofTile18Shape" -p "|OG_Cabin|RoofTiles01|RoofTile18";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile19" -p "RoofTiles01";
 	rename -uid "301D69BF-EB4C-C7BB-545A-8AAF826F4EDF";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.1496215239557381 4.2205619337030109 -2.547908093656567 ;
 	setAttr ".sp" -type "double3" -1.1496215239557381 4.2205619337030109 -2.547908093656567 ;
 createNode mesh -n "RoofTile19Shape" -p "|OG_Cabin|RoofTiles01|RoofTile19";
@@ -9443,6 +9482,8 @@ createNode mesh -n "RoofTile19Shape" -p "|OG_Cabin|RoofTiles01|RoofTile19";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile20" -p "RoofTiles01";
 	rename -uid "9278B28F-7B43-34A6-0249-DB9A234DBA7B";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.7074563847483456 4.0055988202775863 -2.2592640836321198 ;
 	setAttr ".sp" -type "double3" -0.7074563847483456 4.0055988202775863 -2.2592640836321198 ;
 createNode mesh -n "RoofTile20Shape" -p "|OG_Cabin|RoofTiles01|RoofTile20";
@@ -9498,6 +9539,8 @@ createNode mesh -n "RoofTile20Shape" -p "|OG_Cabin|RoofTiles01|RoofTile20";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile21" -p "RoofTiles01";
 	rename -uid "7ACF7BB2-764C-FA8F-C5CA-A583FD9AA355";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.28535031516774451 3.8235954559775447 -2.547908093656567 ;
 	setAttr ".sp" -type "double3" -0.28535031516774451 3.8235954559775447 -2.547908093656567 ;
 createNode mesh -n "RoofTile21Shape" -p "|OG_Cabin|RoofTiles01|RoofTile21";
@@ -9553,6 +9596,8 @@ createNode mesh -n "RoofTile21Shape" -p "|OG_Cabin|RoofTiles01|RoofTile21";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile22" -p "RoofTiles01";
 	rename -uid "67DE8121-C14E-50DF-85B6-04AF9EE851EE";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.28535031516774451 3.8235954559775447 -2.0174447626530005 ;
 	setAttr ".sp" -type "double3" -0.28535031516774451 3.8235954559775447 -2.0174447626530005 ;
 createNode mesh -n "RoofTile22Shape" -p "|OG_Cabin|RoofTiles01|RoofTile22";
@@ -9608,6 +9653,8 @@ createNode mesh -n "RoofTile22Shape" -p "|OG_Cabin|RoofTiles01|RoofTile22";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile23" -p "RoofTiles01";
 	rename -uid "7815F0A1-ED4E-E340-9BCB-84BCC67472CE";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.7469043931647702 4.0050062892287661 -1.7288007526285543 ;
 	setAttr ".sp" -type "double3" -0.7469043931647702 4.0050062892287661 -1.7288007526285543 ;
 createNode mesh -n "RoofTile23Shape" -p "|OG_Cabin|RoofTiles01|RoofTile23";
@@ -9663,6 +9710,8 @@ createNode mesh -n "RoofTile23Shape" -p "|OG_Cabin|RoofTiles01|RoofTile23";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile24" -p "RoofTiles01";
 	rename -uid "758212B2-E341-AA20-B9CC-FC9100BF5207";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.1496215239557381 4.2205619337030109 -2.0174447626530005 ;
 	setAttr ".sp" -type "double3" -1.1496215239557381 4.2205619337030109 -2.0174447626530005 ;
 createNode mesh -n "RoofTile24Shape" -p "|OG_Cabin|RoofTiles01|RoofTile24";
@@ -9718,6 +9767,8 @@ createNode mesh -n "RoofTile24Shape" -p "|OG_Cabin|RoofTiles01|RoofTile24";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile25" -p "RoofTiles01";
 	rename -uid "EBCD4D7D-FB42-FB1F-59A8-7EA9BF1503F1";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.5316283394202184 4.4873564160765795 -1.835458121872422 ;
 	setAttr ".sp" -type "double3" -1.5316283394202184 4.4873564160765795 -1.835458121872422 ;
 createNode mesh -n "RoofTile25Shape" -p "|OG_Cabin|RoofTiles01|RoofTile25";
@@ -9773,6 +9824,8 @@ createNode mesh -n "RoofTile25Shape" -p "|OG_Cabin|RoofTiles01|RoofTile25";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile26" -p "RoofTiles01";
 	rename -uid "482728B6-4143-346A-7EB4-309BE632929B";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.8950203976335376 4.823848152409524 -2.0174447626530014 ;
 	setAttr ".sp" -type "double3" -1.8950203976335376 4.823848152409524 -2.0174447626530014 ;
 createNode mesh -n "RoofTile26Shape" -p "|OG_Cabin|RoofTiles01|RoofTile26";
@@ -9828,6 +9881,8 @@ createNode mesh -n "RoofTile26Shape" -p "|OG_Cabin|RoofTiles01|RoofTile26";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile27" -p "RoofTiles01";
 	rename -uid "8E974AB7-674A-C74C-C7F1-61BF7239B546";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.1580004660466576 5.1798810218345075 -1.653341711822585 ;
 	setAttr ".sp" -type "double3" -2.1580004660466576 5.1798810218345075 -1.653341711822585 ;
 createNode mesh -n "RoofTile27Shape" -p "|OG_Cabin|RoofTiles01|RoofTile27";
@@ -9883,6 +9938,8 @@ createNode mesh -n "RoofTile27Shape" -p "|OG_Cabin|RoofTiles01|RoofTile27";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile28" -p "RoofTiles01";
 	rename -uid "98A2CE8E-0A4B-2257-9CC2-49AB08C7F625";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.4501449389077479 5.604190910395114 -2.0174447626530005 ;
 	setAttr ".sp" -type "double3" -2.4501449389077479 5.604190910395114 -2.0174447626530005 ;
 createNode mesh -n "RoofTile28Shape" -p "|OG_Cabin|RoofTiles01|RoofTile28";
@@ -9938,6 +9995,8 @@ createNode mesh -n "RoofTile28Shape" -p "|OG_Cabin|RoofTiles01|RoofTile28";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile29" -p "RoofTiles01";
 	rename -uid "D9A82F7D-5C45-1ADF-77F8-9C939AD2EA6B";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.4773959528419938 5.63103278437731 -1.4571994625240206 ;
 	setAttr ".sp" -type "double3" -2.4773959528419938 5.63103278437731 -1.4571994625240206 ;
 createNode mesh -n "RoofTile29Shape" -p "|OG_Cabin|RoofTiles01|RoofTile29";
@@ -9993,6 +10052,8 @@ createNode mesh -n "RoofTile29Shape" -p "|OG_Cabin|RoofTiles01|RoofTile29";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile30" -p "RoofTiles01";
 	rename -uid "063A6598-7A4E-3171-13C4-6985D27A4E4D";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.1580004660466576 5.1798810218345075 -1.0930964116936042 ;
 	setAttr ".sp" -type "double3" -2.1580004660466576 5.1798810218345075 -1.0930964116936042 ;
 createNode mesh -n "RoofTile30Shape" -p "|OG_Cabin|RoofTiles01|RoofTile30";
@@ -10048,6 +10109,8 @@ createNode mesh -n "RoofTile30Shape" -p "|OG_Cabin|RoofTiles01|RoofTile30";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile31" -p "RoofTiles01";
 	rename -uid "DBD14CCF-714F-7923-B26A-DCA8F11D650B";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.8549243834476361 4.8042263104208072 -1.4571994625240197 ;
 	setAttr ".sp" -type "double3" -1.8549243834476361 4.8042263104208072 -1.4571994625240197 ;
 createNode mesh -n "RoofTile31Shape" -p "|OG_Cabin|RoofTiles01|RoofTile31";
@@ -10103,6 +10166,8 @@ createNode mesh -n "RoofTile31Shape" -p "|OG_Cabin|RoofTiles01|RoofTile31";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile32" -p "RoofTiles01";
 	rename -uid "7824CCC8-494B-6405-1721-25B9BE48A585";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.5316283394202184 4.4873564160765795 -1.2883762407685393 ;
 	setAttr ".sp" -type "double3" -1.5316283394202184 4.4873564160765795 -1.2883762407685393 ;
 createNode mesh -n "RoofTile32Shape" -p "|OG_Cabin|RoofTiles01|RoofTile32";
@@ -10158,6 +10223,8 @@ createNode mesh -n "RoofTile32Shape" -p "|OG_Cabin|RoofTiles01|RoofTile32";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile33" -p "RoofTiles01";
 	rename -uid "E99F9896-F240-C229-8470-AC98F6294DE8";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.1496215239557381 4.2205619337030109 -1.4571994625240197 ;
 	setAttr ".sp" -type "double3" -1.1496215239557381 4.2205619337030109 -1.4571994625240197 ;
 createNode mesh -n "RoofTile33Shape" -p "|OG_Cabin|RoofTiles01|RoofTile33";
@@ -10213,6 +10280,8 @@ createNode mesh -n "RoofTile33Shape" -p "|OG_Cabin|RoofTiles01|RoofTile33";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile34" -p "RoofTiles01";
 	rename -uid "AF1C6865-864C-25B5-2250-82B966E85386";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.7074563847483456 4.0055988202775863 -1.168555452499572 ;
 	setAttr ".sp" -type "double3" -0.7074563847483456 4.0055988202775863 -1.168555452499572 ;
 createNode mesh -n "RoofTile34Shape" -p "|OG_Cabin|RoofTiles01|RoofTile34";
@@ -10268,6 +10337,8 @@ createNode mesh -n "RoofTile34Shape" -p "|OG_Cabin|RoofTiles01|RoofTile34";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile35" -p "RoofTiles01";
 	rename -uid "C413AB37-CB43-84F0-6578-0EA39E884681";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.33388403662346494 3.8328349577988634 -1.4571994625240197 ;
 	setAttr ".sp" -type "double3" -0.33388403662346494 3.8328349577988634 -1.4571994625240197 ;
 createNode mesh -n "RoofTile35Shape" -p "|OG_Cabin|RoofTiles01|RoofTile35";
@@ -10323,6 +10394,8 @@ createNode mesh -n "RoofTile35Shape" -p "|OG_Cabin|RoofTiles01|RoofTile35";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile36" -p "RoofTiles01";
 	rename -uid "84FB4257-BD43-FB75-3036-37953F4F1277";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.28535031516774451 3.8235954559775447 -0.92673613152045275 ;
 	setAttr ".sp" -type "double3" -0.28535031516774451 3.8235954559775447 -0.92673613152045275 ;
 createNode mesh -n "RoofTile36Shape" -p "|OG_Cabin|RoofTiles01|RoofTile36";
@@ -10378,6 +10451,8 @@ createNode mesh -n "RoofTile36Shape" -p "|OG_Cabin|RoofTiles01|RoofTile36";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile37" -p "RoofTiles01";
 	rename -uid "D6027682-AB46-FC97-07AB-3D8AF7748C2B";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.7074563847483456 4.0055988202775863 -0.63809212149600603 ;
 	setAttr ".sp" -type "double3" -0.7074563847483456 4.0055988202775863 -0.63809212149600603 ;
 createNode mesh -n "RoofTile37Shape" -p "|OG_Cabin|RoofTiles01|RoofTile37";
@@ -10433,6 +10508,8 @@ createNode mesh -n "RoofTile37Shape" -p "|OG_Cabin|RoofTiles01|RoofTile37";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile38" -p "RoofTiles01";
 	rename -uid "5F50E352-5348-74E6-4298-888A9FC7CF2C";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.1496215239557381 4.2205619337030109 -0.92673613152045275 ;
 	setAttr ".sp" -type "double3" -1.1496215239557381 4.2205619337030109 -0.92673613152045275 ;
 createNode mesh -n "RoofTile38Shape" -p "|OG_Cabin|RoofTiles01|RoofTile38";
@@ -10488,6 +10565,8 @@ createNode mesh -n "RoofTile38Shape" -p "|OG_Cabin|RoofTiles01|RoofTile38";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile39" -p "RoofTiles01";
 	rename -uid "1463F561-C345-89AE-C847-44BBBDD22A40";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.5316283394202184 4.4873564160765795 -0.73792538651000594 ;
 	setAttr ".sp" -type "double3" -1.5316283394202184 4.4873564160765795 -0.73792538651000594 ;
 createNode mesh -n "RoofTile39Shape" -p "|OG_Cabin|RoofTiles01|RoofTile39";
@@ -10543,6 +10622,8 @@ createNode mesh -n "RoofTile39Shape" -p "|OG_Cabin|RoofTiles01|RoofTile39";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile40" -p "RoofTiles01";
 	rename -uid "E8F175BA-FE45-F0E8-0592-D8ABA2E4F88E";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.8549243834476361 4.8042263104208072 -0.92673613152045275 ;
 	setAttr ".sp" -type "double3" -1.8549243834476361 4.8042263104208072 -0.92673613152045275 ;
 createNode mesh -n "RoofTile40Shape" -p "|OG_Cabin|RoofTiles01|RoofTile40";
@@ -10598,6 +10679,8 @@ createNode mesh -n "RoofTile40Shape" -p "|OG_Cabin|RoofTiles01|RoofTile40";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile41" -p "RoofTiles01";
 	rename -uid "CA17EC25-E549-3942-5D73-7897006A9C12";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.1580004660466576 5.1798810218345075 -0.56263308069003748 ;
 	setAttr ".sp" -type "double3" -2.1580004660466576 5.1798810218345075 -0.56263308069003748 ;
 createNode mesh -n "RoofTile41Shape" -p "|OG_Cabin|RoofTiles01|RoofTile41";
@@ -10653,6 +10736,8 @@ createNode mesh -n "RoofTile41Shape" -p "|OG_Cabin|RoofTiles01|RoofTile41";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile42" -p "RoofTiles01";
 	rename -uid "A70546CD-B645-05E3-0D1A-24BF6C4742CB";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.4501449389077479 5.604190910395114 -0.92673613152045275 ;
 	setAttr ".sp" -type "double3" -2.4501449389077479 5.604190910395114 -0.92673613152045275 ;
 createNode mesh -n "RoofTile42Shape" -p "|OG_Cabin|RoofTiles01|RoofTile42";
@@ -10708,6 +10793,8 @@ createNode mesh -n "RoofTile42Shape" -p "|OG_Cabin|RoofTiles01|RoofTile42";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile43" -p "RoofTiles01";
 	rename -uid "2AC13040-9045-4EDA-9E93-BEA3171C714F";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.4501449389077479 5.604190910395114 -0.37837084341339083 ;
 	setAttr ".sp" -type "double3" -2.4501449389077479 5.604190910395114 -0.37837084341339083 ;
 createNode mesh -n "RoofTile43Shape" -p "|OG_Cabin|RoofTiles01|RoofTile43";
@@ -10763,6 +10850,8 @@ createNode mesh -n "RoofTile43Shape" -p "|OG_Cabin|RoofTiles01|RoofTile43";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile44" -p "RoofTiles01";
 	rename -uid "F69EBB79-5D47-0016-4AAF-4DB11C8E8A4E";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.1580004660466576 5.1798810218345075 -0.01426779258297578 ;
 	setAttr ".sp" -type "double3" -2.1580004660466576 5.1798810218345075 -0.01426779258297578 ;
 createNode mesh -n "RoofTile44Shape" -p "|OG_Cabin|RoofTiles01|RoofTile44";
@@ -10818,6 +10907,8 @@ createNode mesh -n "RoofTile44Shape" -p "|OG_Cabin|RoofTiles01|RoofTile44";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile45" -p "RoofTiles01";
 	rename -uid "ED8012C9-AF4C-DF76-B5F0-AF8286EF5997";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.8801662637999654 4.8039359895952236 -0.37837084341339083 ;
 	setAttr ".sp" -type "double3" -1.8801662637999654 4.8039359895952236 -0.37837084341339083 ;
 createNode mesh -n "RoofTile45Shape" -p "|OG_Cabin|RoofTiles01|RoofTile45";
@@ -10873,6 +10964,8 @@ createNode mesh -n "RoofTile45Shape" -p "|OG_Cabin|RoofTiles01|RoofTile45";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile46" -p "RoofTiles01";
 	rename -uid "CE1E7CEF-5D4D-9ADF-3C6D-1D9A45E995F8";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.5316283394202184 4.4873564160765795 -0.17604021215318616 ;
 	setAttr ".sp" -type "double3" -1.5316283394202184 4.4873564160765795 -0.17604021215318616 ;
 createNode mesh -n "RoofTile46Shape" -p "|OG_Cabin|RoofTiles01|RoofTile46";
@@ -10928,6 +11021,8 @@ createNode mesh -n "RoofTile46Shape" -p "|OG_Cabin|RoofTiles01|RoofTile46";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile47" -p "RoofTiles01";
 	rename -uid "351E9DA0-3941-844B-B7E7-6C8CFED08639";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.1496215239557381 4.2205619337030109 -0.37837084341339083 ;
 	setAttr ".sp" -type "double3" -1.1496215239557381 4.2205619337030109 -0.37837084341339083 ;
 createNode mesh -n "RoofTile47Shape" -p "|OG_Cabin|RoofTiles01|RoofTile47";
@@ -10983,6 +11078,8 @@ createNode mesh -n "RoofTile47Shape" -p "|OG_Cabin|RoofTiles01|RoofTile47";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile48" -p "RoofTiles01";
 	rename -uid "23398C1C-FC40-B0B9-F40C-BFA81F92E85A";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.7074563847483456 4.0055988202775863 -0.089726833388944327 ;
 	setAttr ".sp" -type "double3" -0.7074563847483456 4.0055988202775863 -0.089726833388944327 ;
 createNode mesh -n "RoofTile48Shape" -p "|OG_Cabin|RoofTiles01|RoofTile48";
@@ -11038,6 +11135,8 @@ createNode mesh -n "RoofTile48Shape" -p "|OG_Cabin|RoofTiles01|RoofTile48";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile49" -p "RoofTiles01";
 	rename -uid "A03859EF-ED44-34CF-4ECE-3CAAA8D2492F";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.28535031516774451 3.8235954559775447 -0.37837084341339083 ;
 	setAttr ".sp" -type "double3" -0.28535031516774451 3.8235954559775447 -0.37837084341339083 ;
 createNode mesh -n "RoofTile49Shape" -p "|OG_Cabin|RoofTiles01|RoofTile49";
@@ -11093,6 +11192,8 @@ createNode mesh -n "RoofTile49Shape" -p "|OG_Cabin|RoofTiles01|RoofTile49";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile50" -p "RoofTiles01";
 	rename -uid "82C3206C-6C4A-362E-1F75-778514CC9340";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.28535031516774451 3.8235954559775447 0.15209248759017541 ;
 	setAttr ".sp" -type "double3" -0.28535031516774451 3.8235954559775447 0.15209248759017541 ;
 createNode mesh -n "RoofTile50Shape" -p "|OG_Cabin|RoofTiles01|RoofTile50";
@@ -11148,6 +11249,8 @@ createNode mesh -n "RoofTile50Shape" -p "|OG_Cabin|RoofTiles01|RoofTile50";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile51" -p "RoofTiles01";
 	rename -uid "BCDB98BF-6742-6427-2853-32A6D87A335F";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.7074563847483456 4.0055988202775863 0.44073649761462258 ;
 	setAttr ".sp" -type "double3" -0.7074563847483456 4.0055988202775863 0.44073649761462258 ;
 createNode mesh -n "RoofTile51Shape" -p "|OG_Cabin|RoofTiles01|RoofTile51";
@@ -11203,6 +11306,8 @@ createNode mesh -n "RoofTile51Shape" -p "|OG_Cabin|RoofTiles01|RoofTile51";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile52" -p "RoofTiles01";
 	rename -uid "3CE57356-4542-1E32-FC0F-2BA1360FB9BD";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.1496215239557381 4.2205619337030109 0.15209248759017541 ;
 	setAttr ".sp" -type "double3" -1.1496215239557381 4.2205619337030109 0.15209248759017541 ;
 createNode mesh -n "RoofTile52Shape" -p "|OG_Cabin|RoofTiles01|RoofTile52";
@@ -11258,6 +11363,8 @@ createNode mesh -n "RoofTile52Shape" -p "|OG_Cabin|RoofTiles01|RoofTile52";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile53" -p "RoofTiles01";
 	rename -uid "052AD258-184B-7823-4C03-2FACFB8A2A46";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.5316283394202184 4.4873564160765795 0.36218875419831059 ;
 	setAttr ".sp" -type "double3" -1.5316283394202184 4.4873564160765795 0.36218875419831059 ;
 createNode mesh -n "RoofTile53Shape" -p "|OG_Cabin|RoofTiles01|RoofTile53";
@@ -11313,6 +11420,8 @@ createNode mesh -n "RoofTile53Shape" -p "|OG_Cabin|RoofTiles01|RoofTile53";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile54" -p "RoofTiles01";
 	rename -uid "E48A1DE4-894C-E8DF-8C10-4B93A68F568C";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.8549243834476361 4.8042263104208072 0.15209248759017541 ;
 	setAttr ".sp" -type "double3" -1.8549243834476361 4.8042263104208072 0.15209248759017541 ;
 createNode mesh -n "RoofTile54Shape" -p "|OG_Cabin|RoofTiles01|RoofTile54";
@@ -11368,6 +11477,8 @@ createNode mesh -n "RoofTile54Shape" -p "|OG_Cabin|RoofTiles01|RoofTile54";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile55" -p "RoofTiles01";
 	rename -uid "EBC2557B-C040-1B90-F935-D08A472CA579";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.1580004660466576 5.1798810218345075 0.51619553842059096 ;
 	setAttr ".sp" -type "double3" -2.1580004660466576 5.1798810218345075 0.51619553842059096 ;
 createNode mesh -n "RoofTile55Shape" -p "|OG_Cabin|RoofTiles01|RoofTile55";
@@ -11423,6 +11534,8 @@ createNode mesh -n "RoofTile55Shape" -p "|OG_Cabin|RoofTiles01|RoofTile55";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile56" -p "RoofTiles01";
 	rename -uid "4CF4F7F4-6C43-98B1-60C7-E39E2B051E7A";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.4501449389077479 5.604190910395114 0.15209248759017541 ;
 	setAttr ".sp" -type "double3" -2.4501449389077479 5.604190910395114 0.15209248759017541 ;
 createNode mesh -n "RoofTile56Shape" -p "|OG_Cabin|RoofTiles01|RoofTile56";
@@ -11478,6 +11591,8 @@ createNode mesh -n "RoofTile56Shape" -p "|OG_Cabin|RoofTiles01|RoofTile56";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile57" -p "RoofTiles01";
 	rename -uid "A712FC91-1448-2C31-50D3-9F8DE77A04A7";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.4501449389077479 5.604190910395114 0.68431199123238673 ;
 	setAttr ".sp" -type "double3" -2.4501449389077479 5.604190910395114 0.68431199123238673 ;
 createNode mesh -n "RoofTile57Shape" -p "|OG_Cabin|RoofTiles01|RoofTile57";
@@ -11533,6 +11648,8 @@ createNode mesh -n "RoofTile57Shape" -p "|OG_Cabin|RoofTiles01|RoofTile57";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile58" -p "RoofTiles01";
 	rename -uid "1026EC3A-2746-C3E5-DCA4-59B32074566A";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.1783189160482954 5.2004191482411768 1.048415042062802 ;
 	setAttr ".sp" -type "double3" -2.1783189160482954 5.2004191482411768 1.048415042062802 ;
 createNode mesh -n "RoofTile58Shape" -p "|OG_Cabin|RoofTiles01|RoofTile58";
@@ -11588,6 +11705,8 @@ createNode mesh -n "RoofTile58Shape" -p "|OG_Cabin|RoofTiles01|RoofTile58";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile59" -p "RoofTiles01";
 	rename -uid "BF841091-1748-8EFE-E1D6-7DBF7645DC30";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.884257347124568 4.8263008464098096 0.68431199123238673 ;
 	setAttr ".sp" -type "double3" -1.884257347124568 4.8263008464098096 0.68431199123238673 ;
 createNode mesh -n "RoofTile59Shape" -p "|OG_Cabin|RoofTiles01|RoofTile59";
@@ -11643,6 +11762,8 @@ createNode mesh -n "RoofTile59Shape" -p "|OG_Cabin|RoofTiles01|RoofTile59";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile60" -p "RoofTiles01";
 	rename -uid "D0AFB521-1043-E896-CFFB-F6BBEDF98A47";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.5309655275959764 4.4804006951236266 0.90821431589787482 ;
 	setAttr ".sp" -type "double3" -1.5309655275959764 4.4804006951236266 0.90821431589787482 ;
 createNode mesh -n "RoofTile60Shape" -p "|OG_Cabin|RoofTiles01|RoofTile60";
@@ -11698,6 +11819,8 @@ createNode mesh -n "RoofTile60Shape" -p "|OG_Cabin|RoofTiles01|RoofTile60";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile61" -p "RoofTiles01";
 	rename -uid "658FA3F5-CA4F-675D-4AE6-5CBCEAB58F90";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.1496215239557381 4.2205619337030109 0.68431199123238673 ;
 	setAttr ".sp" -type "double3" -1.1496215239557381 4.2205619337030109 0.68431199123238673 ;
 createNode mesh -n "RoofTile61Shape" -p "|OG_Cabin|RoofTiles01|RoofTile61";
@@ -11753,6 +11876,8 @@ createNode mesh -n "RoofTile61Shape" -p "|OG_Cabin|RoofTiles01|RoofTile61";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile62" -p "RoofTiles01";
 	rename -uid "A8970C24-E044-8961-3DF4-A38B8E078E95";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.7074563847483456 4.0055988202775863 0.97295600125683324 ;
 	setAttr ".sp" -type "double3" -0.7074563847483456 4.0055988202775863 0.97295600125683324 ;
 createNode mesh -n "RoofTile62Shape" -p "|OG_Cabin|RoofTiles01|RoofTile62";
@@ -11808,6 +11933,8 @@ createNode mesh -n "RoofTile62Shape" -p "|OG_Cabin|RoofTiles01|RoofTile62";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile63" -p "RoofTiles01";
 	rename -uid "E49EC867-5949-4BE7-A711-BBB350F44243";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.28535031516774451 3.8235954559775447 0.68431199123238673 ;
 	setAttr ".sp" -type "double3" -0.28535031516774451 3.8235954559775447 0.68431199123238673 ;
 createNode mesh -n "RoofTile63Shape" -p "|OG_Cabin|RoofTiles01|RoofTile63";
@@ -11863,6 +11990,8 @@ createNode mesh -n "RoofTile63Shape" -p "|OG_Cabin|RoofTiles01|RoofTile63";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile64" -p "RoofTiles01";
 	rename -uid "BDCC6F92-BD4D-A985-B277-DA9E6F00B70E";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.28535031516774451 3.8235954559775447 1.2147753222359525 ;
 	setAttr ".sp" -type "double3" -0.28535031516774451 3.8235954559775447 1.2147753222359525 ;
 createNode mesh -n "RoofTile64Shape" -p "|OG_Cabin|RoofTiles01|RoofTile64";
@@ -11918,6 +12047,8 @@ createNode mesh -n "RoofTile64Shape" -p "|OG_Cabin|RoofTiles01|RoofTile64";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile65" -p "RoofTiles01";
 	rename -uid "FA4725E3-414F-6351-DEFE-0BBD80FD17E2";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.7074563847483456 4.0055988202775863 1.5034193322604001 ;
 	setAttr ".sp" -type "double3" -0.7074563847483456 4.0055988202775863 1.5034193322604001 ;
 createNode mesh -n "RoofTile65Shape" -p "|OG_Cabin|RoofTiles01|RoofTile65";
@@ -11973,6 +12104,8 @@ createNode mesh -n "RoofTile65Shape" -p "|OG_Cabin|RoofTiles01|RoofTile65";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile66" -p "RoofTiles01";
 	rename -uid "15D9D299-1F4A-E6F4-0043-B39B5E9A69A6";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.1496215239557381 4.2205619337030109 1.2147753222359525 ;
 	setAttr ".sp" -type "double3" -1.1496215239557381 4.2205619337030109 1.2147753222359525 ;
 createNode mesh -n "RoofTile66Shape" -p "|OG_Cabin|RoofTiles01|RoofTile66";
@@ -12028,6 +12161,8 @@ createNode mesh -n "RoofTile66Shape" -p "|OG_Cabin|RoofTiles01|RoofTile66";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile67" -p "RoofTiles01";
 	rename -uid "349CD0F3-B14F-5D62-3119-55BB78D7D967";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.5316283394202184 4.4873564160765795 1.475689660742872 ;
 	setAttr ".sp" -type "double3" -1.5316283394202184 4.4873564160765795 1.475689660742872 ;
 createNode mesh -n "RoofTile67Shape" -p "|OG_Cabin|RoofTiles01|RoofTile67";
@@ -12083,6 +12218,8 @@ createNode mesh -n "RoofTile67Shape" -p "|OG_Cabin|RoofTiles01|RoofTile67";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile68" -p "RoofTiles01";
 	rename -uid "602C3F8C-1943-D466-FE77-DE9C06D073AD";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.8549243834476361 4.8042263104208072 1.2147753222359525 ;
 	setAttr ".sp" -type "double3" -1.8549243834476361 4.8042263104208072 1.2147753222359525 ;
 createNode mesh -n "RoofTile68Shape" -p "|OG_Cabin|RoofTiles01|RoofTile68";
@@ -12138,6 +12275,8 @@ createNode mesh -n "RoofTile68Shape" -p "|OG_Cabin|RoofTiles01|RoofTile68";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile69" -p "RoofTiles01";
 	rename -uid "C5C062C3-0646-3EF7-F41A-828E4D781366";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.1580004660466576 5.1798810218345075 1.5788783730663685 ;
 	setAttr ".sp" -type "double3" -2.1580004660466576 5.1798810218345075 1.5788783730663685 ;
 createNode mesh -n "RoofTile69Shape" -p "|OG_Cabin|RoofTiles01|RoofTile69";
@@ -12193,6 +12332,8 @@ createNode mesh -n "RoofTile69Shape" -p "|OG_Cabin|RoofTiles01|RoofTile69";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile70" -p "RoofTiles01";
 	rename -uid "37CE5C84-CF48-DFA0-667F-2D9616F8ABF2";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.469125538115124 5.6300637431175131 1.2147753222359516 ;
 	setAttr ".sp" -type "double3" -2.469125538115124 5.6300637431175131 1.2147753222359516 ;
 createNode mesh -n "RoofTile70Shape" -p "|OG_Cabin|RoofTiles01|RoofTile70";
@@ -12248,6 +12389,8 @@ createNode mesh -n "RoofTile70Shape" -p "|OG_Cabin|RoofTiles01|RoofTile70";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile71" -p "RoofTiles01";
 	rename -uid "1E6CA30D-974B-E22E-85A3-2D9A6AEE1B13";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.4501449389077479 5.604190910395114 1.7631406103430152 ;
 	setAttr ".sp" -type "double3" -2.4501449389077479 5.604190910395114 1.7631406103430152 ;
 createNode mesh -n "RoofTile71Shape" -p "|OG_Cabin|RoofTiles01|RoofTile71";
@@ -12303,6 +12446,8 @@ createNode mesh -n "RoofTile71Shape" -p "|OG_Cabin|RoofTiles01|RoofTile71";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile72" -p "RoofTiles01";
 	rename -uid "8D41C5B8-9446-747F-3C79-A182406D8D30";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.1580004660466576 5.1798810218345075 2.1272436611734307 ;
 	setAttr ".sp" -type "double3" -2.1580004660466576 5.1798810218345075 2.1272436611734307 ;
 createNode mesh -n "RoofTile72Shape" -p "|OG_Cabin|RoofTiles01|RoofTile72";
@@ -12358,6 +12503,8 @@ createNode mesh -n "RoofTile72Shape" -p "|OG_Cabin|RoofTiles01|RoofTile72";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile73" -p "RoofTiles01";
 	rename -uid "26CA546F-9F4F-4B40-1CAB-0E94A6D79AB9";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.8549243834476361 4.8042263104208072 1.7631406103430152 ;
 	setAttr ".sp" -type "double3" -1.8549243834476361 4.8042263104208072 1.7631406103430152 ;
 createNode mesh -n "RoofTile73Shape" -p "|OG_Cabin|RoofTiles01|RoofTile73";
@@ -12413,6 +12560,8 @@ createNode mesh -n "RoofTile73Shape" -p "|OG_Cabin|RoofTiles01|RoofTile73";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile74" -p "RoofTiles01";
 	rename -uid "2F6119EA-1547-34B4-62F1-58A185ACBB32";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.5566522175376543 4.5065108423707159 2.0427692177386412 ;
 	setAttr ".sp" -type "double3" -1.5566522175376543 4.5065108423707159 2.0427692177386412 ;
 createNode mesh -n "RoofTile74Shape" -p "|OG_Cabin|RoofTiles01|RoofTile74";
@@ -12468,6 +12617,8 @@ createNode mesh -n "RoofTile74Shape" -p "|OG_Cabin|RoofTiles01|RoofTile74";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile75" -p "RoofTiles01";
 	rename -uid "4CB2D0D5-2147-F3B5-38A9-C38AF2E31027";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.1496215239557381 4.2205619337030109 1.7631406103430152 ;
 	setAttr ".sp" -type "double3" -1.1496215239557381 4.2205619337030109 1.7631406103430152 ;
 createNode mesh -n "RoofTile75Shape" -p "|OG_Cabin|RoofTiles01|RoofTile75";
@@ -12523,6 +12674,8 @@ createNode mesh -n "RoofTile75Shape" -p "|OG_Cabin|RoofTiles01|RoofTile75";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile76" -p "RoofTiles01";
 	rename -uid "4C3DBE0F-3541-E86B-EE46-379622215577";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.7074563847483456 4.0055988202775863 2.0517846203674628 ;
 	setAttr ".sp" -type "double3" -0.7074563847483456 4.0055988202775863 2.0517846203674628 ;
 createNode mesh -n "RoofTile76Shape" -p "|OG_Cabin|RoofTiles01|RoofTile76";
@@ -12578,6 +12731,8 @@ createNode mesh -n "RoofTile76Shape" -p "|OG_Cabin|RoofTiles01|RoofTile76";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile77" -p "RoofTiles01";
 	rename -uid "153CE2F3-9E44-19E5-26FD-DBA2E60CA2FC";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.28535031516774451 3.8235954559775447 1.7631406103430152 ;
 	setAttr ".sp" -type "double3" -0.28535031516774451 3.8235954559775447 1.7631406103430152 ;
 createNode mesh -n "RoofTile77Shape" -p "|OG_Cabin|RoofTiles01|RoofTile77";
@@ -12633,6 +12788,8 @@ createNode mesh -n "RoofTile77Shape" -p "|OG_Cabin|RoofTiles01|RoofTile77";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile78" -p "RoofTiles01";
 	rename -uid "183C6701-7449-68B7-05F1-089BAFC2590F";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.28535031516774451 3.8235954559775447 2.2936039413465816 ;
 	setAttr ".sp" -type "double3" -0.28535031516774451 3.8235954559775447 2.2936039413465816 ;
 createNode mesh -n "RoofTile78Shape" -p "|OG_Cabin|RoofTiles01|RoofTile78";
@@ -12688,6 +12845,8 @@ createNode mesh -n "RoofTile78Shape" -p "|OG_Cabin|RoofTiles01|RoofTile78";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile79" -p "RoofTiles01";
 	rename -uid "0CE6B910-214E-8EA1-C4BF-3182342EF55D";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.7074563847483456 4.0055988202775863 2.5695326479856506 ;
 	setAttr ".sp" -type "double3" -0.7074563847483456 4.0055988202775863 2.5695326479856506 ;
 createNode mesh -n "RoofTile79Shape" -p "|OG_Cabin|RoofTiles01|RoofTile79";
@@ -12743,6 +12902,8 @@ createNode mesh -n "RoofTile79Shape" -p "|OG_Cabin|RoofTiles01|RoofTile79";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile80" -p "RoofTiles01";
 	rename -uid "ADA79A2A-A442-E8F7-54FE-F298D7757468";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.1794164519457986 4.2325745608717531 2.2936039413465816 ;
 	setAttr ".sp" -type "double3" -1.1794164519457986 4.2325745608717531 2.2936039413465816 ;
 createNode mesh -n "RoofTile80Shape" -p "|OG_Cabin|RoofTiles01|RoofTile80";
@@ -12798,6 +12959,8 @@ createNode mesh -n "RoofTile80Shape" -p "|OG_Cabin|RoofTiles01|RoofTile80";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile81" -p "RoofTiles01";
 	rename -uid "EB9D1FF6-FF48-5305-18A0-86AF2CA796C3";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.5316283394202184 4.4873564160765795 2.5589414903077721 ;
 	setAttr ".sp" -type "double3" -1.5316283394202184 4.4873564160765795 2.5589414903077721 ;
 createNode mesh -n "RoofTile81Shape" -p "|OG_Cabin|RoofTiles01|RoofTile81";
@@ -12853,6 +13016,8 @@ createNode mesh -n "RoofTile81Shape" -p "|OG_Cabin|RoofTiles01|RoofTile81";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile82" -p "RoofTiles01";
 	rename -uid "4C179AA3-BD4B-C838-9D65-06AB4A9B7F98";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.8549243834476361 4.8042263104208072 2.2936039413465816 ;
 	setAttr ".sp" -type "double3" -1.8549243834476361 4.8042263104208072 2.2936039413465816 ;
 createNode mesh -n "RoofTile82Shape" -p "|OG_Cabin|RoofTiles01|RoofTile82";
@@ -12908,6 +13073,8 @@ createNode mesh -n "RoofTile82Shape" -p "|OG_Cabin|RoofTiles01|RoofTile82";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile83" -p "RoofTiles01";
 	rename -uid "835D73D4-9743-9968-0FB0-D19632BBC7CE";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.1580004660466576 5.1798810218345075 2.6577069921769962 ;
 	setAttr ".sp" -type "double3" -2.1580004660466576 5.1798810218345075 2.6577069921769962 ;
 createNode mesh -n "RoofTile83Shape" -p "|OG_Cabin|RoofTiles01|RoofTile83";
@@ -12963,6 +13130,8 @@ createNode mesh -n "RoofTile83Shape" -p "|OG_Cabin|RoofTiles01|RoofTile83";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile84" -p "RoofTiles01";
 	rename -uid "57BFC310-1B4D-9C8C-EE07-2A8DEECD7D4A";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.4501449389077479 5.604190910395114 2.2936039413465816 ;
 	setAttr ".sp" -type "double3" -2.4501449389077479 5.604190910395114 2.2936039413465816 ;
 createNode mesh -n "RoofTile84Shape" -p "|OG_Cabin|RoofTiles01|RoofTile84";
@@ -13018,6 +13187,8 @@ createNode mesh -n "RoofTile84Shape" -p "|OG_Cabin|RoofTiles01|RoofTile84";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile85" -p "RoofTiles01";
 	rename -uid "0E9FAA48-7F4F-A1FB-87C6-7AB74C57F10E";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.4837630973665066 5.6337142943192431 2.8538492414755616 ;
 	setAttr ".sp" -type "double3" -2.4837630973665066 5.6337142943192431 2.8538492414755616 ;
 createNode mesh -n "RoofTile85Shape" -p "|OG_Cabin|RoofTiles01|RoofTile85";
@@ -13073,6 +13244,8 @@ createNode mesh -n "RoofTile85Shape" -p "|OG_Cabin|RoofTiles01|RoofTile85";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile86" -p "RoofTiles01";
 	rename -uid "A31592A3-8846-0F37-4B8B-2AB94D84A598";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.1757753721993254 5.2138782613515469 3.2179522923059785 ;
 	setAttr ".sp" -type "double3" -2.1757753721993254 5.2138782613515469 3.2179522923059785 ;
 createNode mesh -n "RoofTile86Shape" -p "|OG_Cabin|RoofTiles01|RoofTile86";
@@ -13128,6 +13301,8 @@ createNode mesh -n "RoofTile86Shape" -p "|OG_Cabin|RoofTiles01|RoofTile86";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile87" -p "RoofTiles01";
 	rename -uid "32FF0720-F44D-7911-A875-3A970A2A8C5C";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.8549243834476361 4.8042263104208072 2.8538492414755616 ;
 	setAttr ".sp" -type "double3" -1.8549243834476361 4.8042263104208072 2.8538492414755616 ;
 createNode mesh -n "RoofTile87Shape" -p "|OG_Cabin|RoofTiles01|RoofTile87";
@@ -13183,6 +13358,8 @@ createNode mesh -n "RoofTile87Shape" -p "|OG_Cabin|RoofTiles01|RoofTile87";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile88" -p "RoofTiles01";
 	rename -uid "2D0BFF75-0946-7C98-5197-6FB74CB8BD77";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.5316283394202184 4.4873564160765795 3.097985057014478 ;
 	setAttr ".sp" -type "double3" -1.5316283394202184 4.4873564160765795 3.097985057014478 ;
 createNode mesh -n "RoofTile88Shape" -p "|OG_Cabin|RoofTiles01|RoofTile88";
@@ -13238,6 +13415,8 @@ createNode mesh -n "RoofTile88Shape" -p "|OG_Cabin|RoofTiles01|RoofTile88";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile89" -p "RoofTiles01";
 	rename -uid "513616B8-194F-A8DE-2787-0DB332D5ED95";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.1496215239557381 4.2205619337030109 2.8538492414755616 ;
 	setAttr ".sp" -type "double3" -1.1496215239557381 4.2205619337030109 2.8538492414755616 ;
 createNode mesh -n "RoofTile89Shape" -p "|OG_Cabin|RoofTiles01|RoofTile89";
@@ -13293,6 +13472,8 @@ createNode mesh -n "RoofTile89Shape" -p "|OG_Cabin|RoofTiles01|RoofTile89";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile90" -p "RoofTiles01";
 	rename -uid "E6387D0D-CC41-8CA5-3C3A-7B964C4B5A1E";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.7074563847483456 4.0055988202775863 3.1024402284881942 ;
 	setAttr ".sp" -type "double3" -0.7074563847483456 4.0055988202775863 3.1024402284881942 ;
 createNode mesh -n "RoofTile90Shape" -p "|OG_Cabin|RoofTiles01|RoofTile90";
@@ -13348,6 +13529,8 @@ createNode mesh -n "RoofTile90Shape" -p "|OG_Cabin|RoofTiles01|RoofTile90";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile91" -p "RoofTiles01";
 	rename -uid "1476B447-AD41-7577-ABF2-B88272C405FB";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.34575054692680668 3.8399316836944366 2.8538492414755616 ;
 	setAttr ".sp" -type "double3" -0.34575054692680668 3.8399316836944366 2.8538492414755616 ;
 createNode mesh -n "RoofTile91Shape" -p "|OG_Cabin|RoofTiles01|RoofTile91";
@@ -13403,6 +13586,8 @@ createNode mesh -n "RoofTile91Shape" -p "|OG_Cabin|RoofTiles01|RoofTile91";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile92" -p "RoofTiles01";
 	rename -uid "57DB1F40-FD45-26F7-0CEF-3793D4326319";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.28535031516774451 3.8235954559775447 3.384312572479129 ;
 	setAttr ".sp" -type "double3" -0.28535031516774451 3.8235954559775447 3.384312572479129 ;
 createNode mesh -n "RoofTile92Shape" -p "|OG_Cabin|RoofTiles01|RoofTile92";
@@ -13458,6 +13643,8 @@ createNode mesh -n "RoofTile92Shape" -p "|OG_Cabin|RoofTiles01|RoofTile92";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile93" -p "RoofTiles01";
 	rename -uid "F5D1B50F-814E-DC62-F7A6-F3BC39C01153";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.7074563847483456 4.0055988202775863 3.6451878794729389 ;
 	setAttr ".sp" -type "double3" -0.7074563847483456 4.0055988202775863 3.6451878794729389 ;
 createNode mesh -n "RoofTile93Shape" -p "|OG_Cabin|RoofTiles01|RoofTile93";
@@ -13513,6 +13700,8 @@ createNode mesh -n "RoofTile93Shape" -p "|OG_Cabin|RoofTiles01|RoofTile93";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile94" -p "RoofTiles01";
 	rename -uid "B7E1C83E-E04C-4BC6-BF8D-F292786502D4";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.1496215239557381 4.2205619337030109 3.384312572479129 ;
 	setAttr ".sp" -type "double3" -1.1496215239557381 4.2205619337030109 3.384312572479129 ;
 createNode mesh -n "RoofTile94Shape" -p "|OG_Cabin|RoofTiles01|RoofTile94";
@@ -13568,6 +13757,8 @@ createNode mesh -n "RoofTile94Shape" -p "|OG_Cabin|RoofTiles01|RoofTile94";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile95" -p "RoofTiles01";
 	rename -uid "2372BB6E-0B4A-CD4A-C17E-8BB2FFCE8CC6";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.5316283394202184 4.4873564160765795 3.651721864811595 ;
 	setAttr ".sp" -type "double3" -1.5316283394202184 4.4873564160765795 3.651721864811595 ;
 createNode mesh -n "RoofTile95Shape" -p "|OG_Cabin|RoofTiles01|RoofTile95";
@@ -13623,6 +13814,8 @@ createNode mesh -n "RoofTile95Shape" -p "|OG_Cabin|RoofTiles01|RoofTile95";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile96" -p "RoofTiles01";
 	rename -uid "3C1667FB-B94C-9A9F-9538-2794345FE199";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.8829273782422475 4.8185911538100648 3.384312572479129 ;
 	setAttr ".sp" -type "double3" -1.8829273782422475 4.8185911538100648 3.384312572479129 ;
 createNode mesh -n "RoofTile96Shape" -p "|OG_Cabin|RoofTiles01|RoofTile96";
@@ -13678,6 +13871,8 @@ createNode mesh -n "RoofTile96Shape" -p "|OG_Cabin|RoofTiles01|RoofTile96";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile97" -p "RoofTiles01";
 	rename -uid "35936D1F-7042-FC72-91C8-DC962E7E17CF";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.1580004660466576 5.1798810218345075 3.6963895134340858 ;
 	setAttr ".sp" -type "double3" -2.1580004660466576 5.1798810218345075 3.6963895134340858 ;
 createNode mesh -n "RoofTile97Shape" -p "|OG_Cabin|RoofTiles01|RoofTile97";
@@ -13733,6 +13928,8 @@ createNode mesh -n "RoofTile97Shape" -p "|OG_Cabin|RoofTiles01|RoofTile97";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile98" -p "RoofTiles01";
 	rename -uid "38815FCD-A843-1C70-6DCF-C8847F4C5088";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.4501449389077479 5.604190910395114 3.384312572479129 ;
 	setAttr ".sp" -type "double3" -2.4501449389077479 5.604190910395114 3.384312572479129 ;
 createNode mesh -n "RoofTile98Shape" -p "|OG_Cabin|RoofTiles01|RoofTile98";
@@ -13788,6 +13985,8 @@ createNode mesh -n "RoofTile98Shape" -p "|OG_Cabin|RoofTiles01|RoofTile98";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile103" -p "RoofTiles01";
 	rename -uid "D8D0A61B-DC4F-334B-2363-BEADCC2B4EA5";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -5.3389012824014737 3.8500410227832869 -3.7646654881600408 ;
 	setAttr ".sp" -type "double3" -5.3389012824014737 3.8500410227832869 -3.7646654881600408 ;
 createNode mesh -n "RoofTile103Shape" -p "RoofTile103";
@@ -13843,6 +14042,8 @@ createNode mesh -n "RoofTile103Shape" -p "RoofTile103";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile104" -p "RoofTiles01";
 	rename -uid "FD2DC52E-C045-C10C-689D-15B669466807";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -4.4591955053204639 4.2386147857686849 -3.7620892172335121 ;
 	setAttr ".sp" -type "double3" -4.4591955053204639 4.2386147857686849 -3.7620892172335121 ;
 createNode mesh -n "RoofTile104Shape" -p "RoofTile104";
@@ -13898,6 +14099,8 @@ createNode mesh -n "RoofTile104Shape" -p "RoofTile104";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile105" -p "RoofTiles01";
 	rename -uid "C9FF0B78-AC40-E791-61A6-168F582CDCC2";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -3.8063534310632563 4.8291743758124266 -3.7709642656699582 ;
 	setAttr ".sp" -type "double3" -3.8063534310632563 4.8291743758124266 -3.7709642656699582 ;
 createNode mesh -n "RoofTile105Shape" -p "RoofTile105";
@@ -13953,6 +14156,8 @@ createNode mesh -n "RoofTile105Shape" -p "RoofTile105";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile106" -p "RoofTiles01";
 	rename -uid "CFC3FEAF-C549-07CC-067A-CFB2956D6ACB";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -3.2530320421475669 5.6256978257595867 -3.7590500500203294 ;
 	setAttr ".sp" -type "double3" -3.2530320421475669 5.6256978257595867 -3.7590500500203294 ;
 createNode mesh -n "RoofTile106Shape" -p "RoofTile106";
@@ -14008,6 +14213,8 @@ createNode mesh -n "RoofTile106Shape" -p "RoofTile106";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile110" -p "RoofTiles01";
 	rename -uid "33FBFA99-C34C-1BCF-2A0E-FABCED885F2A";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -2.215633792256277 5.2264272348259322 -3.6948536793027453 ;
 	setAttr ".sp" -type "double3" -2.215633792256277 5.2264272348259322 -3.6948536793027453 ;
 createNode mesh -n "RoofTile110Shape" -p "RoofTile110";
@@ -14063,6 +14270,8 @@ createNode mesh -n "RoofTile110Shape" -p "RoofTile110";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile111" -p "RoofTiles01";
 	rename -uid "8A8C4A1D-914D-EC32-140B-CCB2954D103D";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -0.7942864396846876 4.0040505230443193 -3.7245666898810024 ;
 	setAttr ".sp" -type "double3" -0.7942864396846876 4.0040505230443193 -3.7245666898810024 ;
 createNode mesh -n "RoofTile111Shape" -p "RoofTile111";
@@ -14118,6 +14327,8 @@ createNode mesh -n "RoofTile111Shape" -p "RoofTile111";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile112" -p "RoofTiles01";
 	rename -uid "32FEF045-BA4A-69A9-C5C4-9DB27F258B67";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" -1.5435942712706585 4.4589686035901721 -3.7963445577045549 ;
 	setAttr ".sp" -type "double3" -1.5435942712706585 4.4589686035901721 -3.7963445577045549 ;
 createNode mesh -n "RoofTile112Shape" -p "RoofTile112";
@@ -14173,6 +14384,8 @@ createNode mesh -n "RoofTile112Shape" -p "RoofTile112";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile113" -p "RoofTiles01";
 	rename -uid "58D58118-FD46-27BE-5C03-59B5C06875F6";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 0.31049261017776703 3.6557018752518893 -3.2115974188120102 ;
 	setAttr ".sp" -type "double3" 0.31049261017776703 3.6557018752518893 -3.2115974188120102 ;
 createNode mesh -n "RoofTile113Shape" -p "RoofTile113";
@@ -14228,6 +14441,8 @@ createNode mesh -n "RoofTile113Shape" -p "RoofTile113";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile114" -p "RoofTiles01";
 	rename -uid "3CDED58F-C64D-E42E-885C-FEB6399B4356";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 0.31049261017776703 3.6557018752518893 -2.663232130704948 ;
 	setAttr ".sp" -type "double3" 0.31049261017776703 3.6557018752518893 -2.663232130704948 ;
 createNode mesh -n "RoofTile114Shape" -p "RoofTile114";
@@ -14283,6 +14498,8 @@ createNode mesh -n "RoofTile114Shape" -p "RoofTile114";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile115" -p "RoofTiles01";
 	rename -uid "909EF197-D74C-BFBC-60B6-CF87CD376679";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 0.31049261017776703 3.6557018752518893 -2.1327687997013816 ;
 	setAttr ".sp" -type "double3" 0.31049261017776703 3.6557018752518893 -2.1327687997013816 ;
 createNode mesh -n "RoofTile115Shape" -p "RoofTile115";
@@ -14338,6 +14555,8 @@ createNode mesh -n "RoofTile115Shape" -p "RoofTile115";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile116" -p "RoofTiles01";
 	rename -uid "C67E76F0-8A4E-1394-1E4B-75A2E5BBC077";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 0.31049261017776703 3.6557018752518893 -0.49369488046177185 ;
 	setAttr ".sp" -type "double3" 0.31049261017776703 3.6557018752518893 -0.49369488046177185 ;
 createNode mesh -n "RoofTile116Shape" -p "RoofTile116";
@@ -14393,6 +14612,8 @@ createNode mesh -n "RoofTile116Shape" -p "RoofTile116";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile117" -p "RoofTiles01";
 	rename -uid "49B904B8-5142-C4D6-E013-11A2E3E81B6D";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 0.26195888872204659 3.664941377073208 -1.5725234995724007 ;
 	setAttr ".sp" -type "double3" 0.26195888872204659 3.664941377073208 -1.5725234995724007 ;
 createNode mesh -n "RoofTile117Shape" -p "RoofTile117";
@@ -14448,6 +14669,8 @@ createNode mesh -n "RoofTile117Shape" -p "RoofTile117";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile118" -p "RoofTiles01";
 	rename -uid "FB5BC17D-3A4E-737B-C8EB-B09C3AD46CA3";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 0.31049261017776703 3.6557018752518893 -1.0420601685688338 ;
 	setAttr ".sp" -type "double3" 0.31049261017776703 3.6557018752518893 -1.0420601685688338 ;
 createNode mesh -n "RoofTile118Shape" -p "RoofTile118";
@@ -14503,6 +14726,8 @@ createNode mesh -n "RoofTile118Shape" -p "RoofTile118";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile119" -p "RoofTiles01";
 	rename -uid "50BB417B-6045-6854-F2E5-9391E27D0A7B";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 0.31049261017776703 3.6557018752518893 0.036768450541794395 ;
 	setAttr ".sp" -type "double3" 0.31049261017776703 3.6557018752518893 0.036768450541794395 ;
 createNode mesh -n "RoofTile119Shape" -p "RoofTile119";
@@ -14558,6 +14783,8 @@ createNode mesh -n "RoofTile119Shape" -p "RoofTile119";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile120" -p "RoofTiles01";
 	rename -uid "9ADFC5EF-2748-2071-F1D4-6D99AC93FD64";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 0.31049261017776703 3.6557018752518893 0.56898795418400572 ;
 	setAttr ".sp" -type "double3" 0.31049261017776703 3.6557018752518893 0.56898795418400572 ;
 createNode mesh -n "RoofTile120Shape" -p "RoofTile120";
@@ -14613,6 +14840,8 @@ createNode mesh -n "RoofTile120Shape" -p "RoofTile120";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile121" -p "RoofTiles01";
 	rename -uid "CB8CCAD8-6747-006E-35CF-99A8321C7833";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 0.31049261017776703 3.6557018752518893 1.0994512851875715 ;
 	setAttr ".sp" -type "double3" 0.31049261017776703 3.6557018752518893 1.0994512851875715 ;
 createNode mesh -n "RoofTile121Shape" -p "RoofTile121";
@@ -14668,6 +14897,8 @@ createNode mesh -n "RoofTile121Shape" -p "RoofTile121";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile122" -p "RoofTiles01";
 	rename -uid "C65A6E0C-E74D-4384-73D8-0287CD5260CC";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 0.31049261017776703 3.6557018752518893 1.6478165732946342 ;
 	setAttr ".sp" -type "double3" 0.31049261017776703 3.6557018752518893 1.6478165732946342 ;
 createNode mesh -n "RoofTile122Shape" -p "RoofTile122";
@@ -14723,6 +14954,8 @@ createNode mesh -n "RoofTile122Shape" -p "RoofTile122";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile123" -p "RoofTiles01";
 	rename -uid "197E4978-394D-A05B-72E1-C98E9E2BF02E";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 0.31049261017776703 3.6557018752518893 2.1782799042982006 ;
 	setAttr ".sp" -type "double3" 0.31049261017776703 3.6557018752518893 2.1782799042982006 ;
 createNode mesh -n "RoofTile123Shape" -p "RoofTile123";
@@ -14778,6 +15011,8 @@ createNode mesh -n "RoofTile123Shape" -p "RoofTile123";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile124" -p "RoofTiles01";
 	rename -uid "BABB6F65-8A48-B0C4-DD9B-0ABABEA74820";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 0.25009237841870485 3.6720381029687812 2.7385252044271806 ;
 	setAttr ".sp" -type "double3" 0.25009237841870485 3.6720381029687812 2.7385252044271806 ;
 createNode mesh -n "RoofTile124Shape" -p "RoofTile124";
@@ -14833,6 +15068,8 @@ createNode mesh -n "RoofTile124Shape" -p "RoofTile124";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile125" -p "RoofTiles01";
 	rename -uid "CFE8E9BA-B945-2A87-D3B1-EE8404F830F4";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 0.31049261017776703 3.6557018752518893 3.268988535430748 ;
 	setAttr ".sp" -type "double3" 0.31049261017776703 3.6557018752518893 3.268988535430748 ;
 createNode mesh -n "RoofTile125Shape" -p "RoofTile125";
@@ -14888,6 +15125,8 @@ createNode mesh -n "RoofTile125Shape" -p "RoofTile125";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile126" -p "RoofTiles01";
 	rename -uid "F6C2FBB1-4A48-DF4B-6028-8F88DC8D06B1";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 1.0194895607521601 3.5415470076810358 -2.8772305186749096 ;
 	setAttr ".sp" -type "double3" 1.0194895607521601 3.5415470076810358 -2.8772305186749096 ;
 createNode mesh -n "RoofTile126Shape" -p "RoofTile126";
@@ -14943,6 +15182,8 @@ createNode mesh -n "RoofTile126Shape" -p "RoofTile126";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile127" -p "RoofTiles01";
 	rename -uid "A41E0083-9C4E-4369-2E85-A6AA4C412F30";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 1.0194895607521601 3.5415470076810358 -2.3288652305678474 ;
 	setAttr ".sp" -type "double3" 1.0194895607521601 3.5415470076810358 -2.3288652305678474 ;
 createNode mesh -n "RoofTile127Shape" -p "RoofTile127";
@@ -14998,6 +15239,8 @@ createNode mesh -n "RoofTile127Shape" -p "RoofTile127";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile128" -p "RoofTiles01";
 	rename -uid "352C65B0-D144-1510-EC85-7C957083289A";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 1.0194895607521601 3.5415470076810358 -1.798401899564281 ;
 	setAttr ".sp" -type "double3" 1.0194895607521601 3.5415470076810358 -1.798401899564281 ;
 createNode mesh -n "RoofTile128Shape" -p "RoofTile128";
@@ -15053,6 +15296,8 @@ createNode mesh -n "RoofTile128Shape" -p "RoofTile128";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile129" -p "RoofTiles01";
 	rename -uid "A353A8FE-A345-5FD4-A6E7-D78409D10FA3";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 1.0194895607521601 3.5415470076810358 -0.15932798032467127 ;
 	setAttr ".sp" -type "double3" 1.0194895607521601 3.5415470076810358 -0.15932798032467127 ;
 createNode mesh -n "RoofTile129Shape" -p "RoofTile129";
@@ -15108,6 +15353,8 @@ createNode mesh -n "RoofTile129Shape" -p "RoofTile129";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile130" -p "RoofTiles01";
 	rename -uid "7F3116E4-C44B-66CB-DBB9-599D5AFC6DFE";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 0.97095583929643969 3.5507865095023545 -1.2381565994353001 ;
 	setAttr ".sp" -type "double3" 0.97095583929643969 3.5507865095023545 -1.2381565994353001 ;
 createNode mesh -n "RoofTile130Shape" -p "RoofTile130";
@@ -15163,6 +15410,8 @@ createNode mesh -n "RoofTile130Shape" -p "RoofTile130";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile131" -p "RoofTiles01";
 	rename -uid "092F1171-574D-0BF6-9E4D-B48C79879389";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 1.0194895607521601 3.5415470076810358 -0.70769326843173319 ;
 	setAttr ".sp" -type "double3" 1.0194895607521601 3.5415470076810358 -0.70769326843173319 ;
 createNode mesh -n "RoofTile131Shape" -p "RoofTile131";
@@ -15218,6 +15467,8 @@ createNode mesh -n "RoofTile131Shape" -p "RoofTile131";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile132" -p "RoofTiles01";
 	rename -uid "09A5AD54-7B4C-10B0-A585-EF8590B1AA7E";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 1.0194895607521601 3.5415470076810358 0.37113535067889497 ;
 	setAttr ".sp" -type "double3" 1.0194895607521601 3.5415470076810358 0.37113535067889497 ;
 createNode mesh -n "RoofTile132Shape" -p "RoofTile132";
@@ -15273,6 +15524,8 @@ createNode mesh -n "RoofTile132Shape" -p "RoofTile132";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile133" -p "RoofTiles01";
 	rename -uid "D81367EE-9B43-39E1-EB8C-B2956A2B4F87";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 1.0194895607521601 3.5415470076810358 0.90335485432110629 ;
 	setAttr ".sp" -type "double3" 1.0194895607521601 3.5415470076810358 0.90335485432110629 ;
 createNode mesh -n "RoofTile133Shape" -p "RoofTile133";
@@ -15328,6 +15581,8 @@ createNode mesh -n "RoofTile133Shape" -p "RoofTile133";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile134" -p "RoofTiles01";
 	rename -uid "E2B4B02F-E840-A909-064B-84BD7B8C90C4";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 1.0194895607521601 3.5415470076810358 1.4338181853246721 ;
 	setAttr ".sp" -type "double3" 1.0194895607521601 3.5415470076810358 1.4338181853246721 ;
 createNode mesh -n "RoofTile134Shape" -p "RoofTile134";
@@ -15383,6 +15638,8 @@ createNode mesh -n "RoofTile134Shape" -p "RoofTile134";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile135" -p "RoofTiles01";
 	rename -uid "0182DF2B-9341-DFBB-373B-8FADFD26FE25";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 1.0194895607521601 3.5415470076810358 1.9821834734317347 ;
 	setAttr ".sp" -type "double3" 1.0194895607521601 3.5415470076810358 1.9821834734317347 ;
 createNode mesh -n "RoofTile135Shape" -p "RoofTile135";
@@ -15438,6 +15695,8 @@ createNode mesh -n "RoofTile135Shape" -p "RoofTile135";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile136" -p "RoofTiles01";
 	rename -uid "1A0B0E29-3244-5EE5-34AD-23873A6145FE";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 1.0194895607521601 3.5415470076810358 2.5126468044353012 ;
 	setAttr ".sp" -type "double3" 1.0194895607521601 3.5415470076810358 2.5126468044353012 ;
 createNode mesh -n "RoofTile136Shape" -p "RoofTile136";
@@ -15493,6 +15752,8 @@ createNode mesh -n "RoofTile136Shape" -p "RoofTile136";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile137" -p "RoofTiles01";
 	rename -uid "AF6B987D-7145-5FAD-CF77-45BC2D9D26B7";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 0.95908932899309796 3.5578832353979277 3.0728921045642812 ;
 	setAttr ".sp" -type "double3" 0.95908932899309796 3.5578832353979277 3.0728921045642812 ;
 createNode mesh -n "RoofTile137Shape" -p "RoofTile137";
@@ -15548,6 +15809,8 @@ createNode mesh -n "RoofTile137Shape" -p "RoofTile137";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RoofTile138" -p "RoofTiles01";
 	rename -uid "35428C5D-D54D-B65C-32DC-BC917FA522E2";
+	setAttr ".r" -type "double3" 0 0 -6.5525037945742497 ;
+	setAttr ".s" -type "double3" 1 0.61249819959280249 1 ;
 	setAttr ".rp" -type "double3" 1.0194895607521601 3.5415470076810358 -3.3791208148522824 ;
 	setAttr ".sp" -type "double3" 1.0194895607521601 3.5415470076810358 -3.3791208148522824 ;
 createNode mesh -n "RoofTile138Shape" -p "RoofTile138";
@@ -15764,62 +16027,6 @@ createNode mesh -n "StairSteps_WB3Shape" -p "StairSteps_WB3";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "StairRailPost_WB6" -p "OG_Cabin";
-	rename -uid "B539A23C-664C-71D7-0FB5-5CAF3DB70677";
-	setAttr ".t" -type "double3" 15.324716751507189 -7.1054273576010019e-15 35.458441509879691 ;
-	setAttr ".rp" -type "double3" 1.0315280546268952 2.1118303461529915 3.0028595675408511 ;
-	setAttr ".sp" -type "double3" 1.0315280546268952 2.1118303461529915 3.0028595675408511 ;
-createNode mesh -n "StairRailPost_WB6Shape" -p "StairRailPost_WB6";
-	rename -uid "4232B6C0-B44F-C622-2046-D5B9546C202D";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr -s 6 ".gtag";
-	setAttr ".gtag[0].gtagnm" -type "string" "back";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[2]";
-	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
-	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[3]";
-	setAttr ".gtag[2].gtagnm" -type "string" "front";
-	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
-	setAttr ".gtag[3].gtagnm" -type "string" "left";
-	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[5]";
-	setAttr ".gtag[4].gtagnm" -type "string" "right";
-	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[4]";
-	setAttr ".gtag[5].gtagnm" -type "string" "top";
-	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".pt[0:7]" -type "float3"  1.4336641 1.3880312 2.6007235 
-		0.62939203 1.3880312 2.6007235 1.4336641 2.8356295 2.6007235 0.62939203 2.8356295 
-		2.6007235 1.4336641 2.8356295 3.4049957 0.62939203 2.8356295 3.4049957 1.4336641 
-		1.3880312 3.4049957 0.62939203 1.3880312 3.4049957;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "StairCaseRailing_WB5" -p "OG_Cabin";
 	rename -uid "678B275E-9E46-3E0D-0E84-7693611B7355";
 	setAttr ".t" -type "double3" 16.814240877560046 0.69518630703447426 34.19909121799445 ;
@@ -15857,62 +16064,6 @@ createNode mesh -n "StairCaseRailing_WB5Shape" -p "StairCaseRailing_WB5";
 	setAttr -s 8 ".pt[0:7]" -type "float3"  0 -0.13323288 0 0.067471214 
 		-1.7286117 0 0 0.11821785 0 0.90311635 -2.7286119 0 0 0.11821785 0 0.90311635 -2.7286119 
 		0 0 -0.13323288 0 0.067471214 -1.7286117 0;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "StairRailPost_WB5" -p "OG_Cabin";
-	rename -uid "AD1B9588-7F40-DE24-CB72-3FB24A2D2E3F";
-	setAttr ".t" -type "double3" 15.324716751507189 -7.1054273576010019e-15 35.458441509879691 ;
-	setAttr ".rp" -type "double3" 1.0315280546268952 2.1118303461529915 -2.9848860502273449 ;
-	setAttr ".sp" -type "double3" 1.0315280546268952 2.1118303461529915 -2.9848860502273449 ;
-createNode mesh -n "StairRailPost_WB5Shape" -p "StairRailPost_WB5";
-	rename -uid "57BD2F76-0A48-34DD-8E3D-908D4699BCC2";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr -s 6 ".gtag";
-	setAttr ".gtag[0].gtagnm" -type "string" "back";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[2]";
-	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
-	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[3]";
-	setAttr ".gtag[2].gtagnm" -type "string" "front";
-	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
-	setAttr ".gtag[3].gtagnm" -type "string" "left";
-	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[5]";
-	setAttr ".gtag[4].gtagnm" -type "string" "right";
-	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[4]";
-	setAttr ".gtag[5].gtagnm" -type "string" "top";
-	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".pt[0:7]" -type "float3"  1.4336641 1.3880312 -3.387022 
-		0.62939203 1.3880312 -3.387022 1.4336641 2.8356295 -3.387022 0.62939203 2.8356295 
-		-3.387022 1.4336641 2.8356295 -2.5827501 0.62939203 2.8356295 -2.5827501 1.4336641 
-		1.3880312 -2.5827501 0.62939203 1.3880312 -2.5827501;
 	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
 		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
 	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
@@ -23563,6 +23714,7 @@ createNode mesh -n "BGTreeShape5" -p "BGTree05";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "FrontTrail";
 	rename -uid "3FA40AD2-9E48-010C-2285-8C9DD8E35D6C";
+	setAttr ".t" -type "double3" 0 0.021669336944216244 0 ;
 	setAttr ".rp" -type "double3" 8.7612185366019162 -0.48370985369862085 0 ;
 	setAttr ".sp" -type "double3" 8.7612185366019162 -0.48370985369862085 0 ;
 createNode mesh -n "FrontTrailShape" -p "FrontTrail";
@@ -23618,8 +23770,9 @@ createNode mesh -n "FrontTrailShape" -p "FrontTrail";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "TreeTrunk";
 	rename -uid "7D230E21-E947-0F74-E6AE-E985547C3624";
-	setAttr ".rp" -type "double3" 5.5015159002024765 0.34062769463958631 3.4319677113125859 ;
-	setAttr ".sp" -type "double3" 5.5015159002024765 0.34062769463958631 3.4319677113125859 ;
+	setAttr ".t" -type "double3" 1.1676000444993679 0 2.7047451927500976 ;
+	setAttr ".rp" -type "double3" 5.5087292194366455 0.34522584080696106 3.4314596652984619 ;
+	setAttr ".sp" -type "double3" 5.5087292194366455 0.34522584080696106 3.4314596652984619 ;
 createNode mesh -n "TreeTrunkShape" -p "TreeTrunk";
 	rename -uid "8FC4FB17-1041-FD23-3259-42B102E2550E";
 	setAttr -k off ".v";
@@ -24154,7 +24307,7 @@ createNode mesh -n "TreeTrunkShape" -p "TreeTrunk";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "RockingChair";
 	rename -uid "ECD7104F-B74E-1F65-7269-7EAD72448117";
-	setAttr ".t" -type "double3" 15.863111347560558 3.5527136788005009e-15 35.100762024648972 ;
+	setAttr ".t" -type "double3" 1.5828982232817743 -0.36619734467748111 2.171367814954789 ;
 	setAttr ".rp" -type "double3" 0.18369761323016917 1.5318918488255513 1.8184555447611732 ;
 	setAttr ".sp" -type "double3" 0.18369761323016917 1.5318918488255513 1.8184555447611732 ;
 createNode transform -n "RockingChairSeat" -p "RockingChair";
@@ -29247,10 +29400,11 @@ createNode mesh -n "ChairSeatSupport04Shape" -p "ChairSeatSupport04";
 	setAttr ".dr" 1;
 createNode transform -n "Axe";
 	rename -uid "437E05B8-2C49-440F-01B8-699D51ECD103";
-	setAttr ".t" -type "double3" -0.27534483094413442 0.26894492742213827 -0.91368330608313353 ;
+	setAttr ".t" -type "double3" 0.89225521355523352 0.26894492742213827 1.7910618866669641 ;
 	setAttr ".r" -type "double3" -31.400397635572173 -33.556895805187345 0.24763972443894758 ;
-	setAttr ".rp" -type "double3" 4.648946967241816 0.98679626146066601 -1.9326872149882459 ;
-	setAttr ".sp" -type "double3" 4.648946967241816 0.98679626146066601 -1.9326872149882459 ;
+	setAttr ".rp" -type "double3" 9.0667409896850586 -1.8664435148239136 2.7361470460891724 ;
+	setAttr ".rpt" -type "double3" -3.7608120740676472 2.8532398350460735 2.3328990473703319 ;
+	setAttr ".sp" -type "double3" 9.0667409896850586 -1.8664435148239136 2.7361470460891724 ;
 createNode transform -n "AxeHead" -p "Axe";
 	rename -uid "6A816286-7F4D-5B83-B81E-808B61B11A2A";
 	setAttr ".rp" -type "double3" 9.0667416861743675 -1.6059115729342199 1.9793447847943242 ;
@@ -59499,7 +59653,7 @@ createNode mesh -n "GloveBoxLidShape" -p "GloveBoxLid";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "areaLight1";
 	rename -uid "72B3F873-3649-17CC-A72E-37893BE13ECE";
-	setAttr ".t" -type "double3" 4.6515253330643525 1.3790998724674464 -1.6601388020369103 ;
+	setAttr ".t" -type "double3" 7.2014380754892775 2.2549689509088862 -0.77649773774702546 ;
 	setAttr ".r" -type "double3" 2.2730999720560328 104.45281103321183 2.165792886909601 ;
 	setAttr ".s" -type "double3" 1.3586582396634292 0.91271513290966533 1.0000000000000002 ;
 	setAttr ".rp" -type "double3" 7.5420683013551162e-17 0 0 ;
@@ -59989,14 +60143,108 @@ createNode camera -n "persp1Shape" -p "persp1";
 	setAttr ".man" -type "string" "persp_mask";
 	setAttr ".tp" -type "double3" 6.4629751951094505 1.4984637498855555 -7.0059226932574585 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
-createNode transform -n "HouseFoundation";
-	rename -uid "1F1A3AE1-457D-D249-351A-A3AEF5A85261";
-	setAttr ".t" -type "double3" 0 -0.075501349940360285 2.5701294078087544 ;
-	setAttr ".s" -type "double3" 1 1 0.92227539672528647 ;
-	setAttr ".rp" -type "double3" 0 0 -1.298980809850599 ;
-	setAttr ".sp" -type "double3" 0 0 -1.298980809850599 ;
-createNode mesh -n "HouseFoundationShape" -p "HouseFoundation";
-	rename -uid "BC2DDE9B-415D-47C2-85CA-0E879F768969";
+createNode transform -n "Cabin";
+	rename -uid "84919D44-47E6-150B-61A1-709BFC4C8259";
+createNode transform -n "CabinFrame" -p "|Cabin";
+	rename -uid "35939A16-4230-7F98-A2A1-A3A8B6746CFA";
+	setAttr ".t" -type "double3" -2.3181966456757599 1.3673018596879272 2.6449468001538801 ;
+	setAttr ".s" -type "double3" 5.6895955323792755 3.8186880361944477 8.2998278430854526 ;
+	setAttr ".rp" -type "double3" -4.4408920985006252e-16 -1.7597832890431993 -1.7729350330880755e-17 ;
+	setAttr ".sp" -type "double3" 2.4651903288156619e-32 -0.5 -1.3877787807814457e-17 ;
+	setAttr ".spt" -type "double3" -4.4408920985006257e-16 -1.2597832890431993 -3.8515625230662984e-18 ;
+createNode mesh -n "CabinFrameShape" -p "CabinFrame";
+	rename -uid "BFCE4082-417A-539F-973F-DBBBE0772E82";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".pv" -type "double2" 0.5 0.375 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 48 ".pt";
+	setAttr ".pt[4]" -type "float3" 0 0.04421629 0 ;
+	setAttr ".pt[5]" -type "float3" 0 0.04421629 0 ;
+	setAttr ".pt[6]" -type "float3" 0 0.016947029 0 ;
+	setAttr ".pt[7]" -type "float3" 0 0.016947029 0 ;
+	setAttr ".pt[9]" -type "float3" 0 0.24391258 0 ;
+	setAttr ".pt[11]" -type "float3" 0 0.24391258 0 ;
+	setAttr ".pt[12]" -type "float3" 0 0.016947029 0 ;
+	setAttr ".pt[13]" -type "float3" 0 0.016947029 0 ;
+	setAttr ".pt[14]" -type "float3" 0 0.04421629 0 ;
+	setAttr ".pt[15]" -type "float3" 0 0.04421629 0 ;
+	setAttr ".pt[20]" -type "float3" 0 0.016947029 0 ;
+	setAttr ".pt[21]" -type "float3" 0 0.04421629 0 ;
+	setAttr ".pt[26]" -type "float3" 0 0.04421629 0 ;
+	setAttr ".pt[27]" -type "float3" 0 0.016947029 0 ;
+	setAttr ".pt[29]" -type "float3" 0 0.24391258 0 ;
+	setAttr ".pt[30]" -type "float3" 0 0.016947029 0 ;
+	setAttr ".pt[31]" -type "float3" 0 0.04421629 0 ;
+	setAttr ".pt[36]" -type "float3" 0 0.04421629 0 ;
+	setAttr ".pt[37]" -type "float3" 0 0.016947029 0 ;
+	setAttr ".pt[39]" -type "float3" 0 0.24391258 0 ;
+	setAttr ".pt[40]" -type "float3" 0 0.016947029 0 ;
+	setAttr ".pt[41]" -type "float3" 0 0.04421629 0 ;
+	setAttr ".pt[46]" -type "float3" 0 0.04421629 0 ;
+	setAttr ".pt[47]" -type "float3" 0 0.016947029 0 ;
+	setAttr ".pt[49]" -type "float3" 0 0.24391258 0 ;
+	setAttr ".pt[50]" -type "float3" 0 0.016947029 0 ;
+	setAttr ".pt[51]" -type "float3" 0 0.04421629 0 ;
+	setAttr ".pt[56]" -type "float3" 0 0.04421629 0 ;
+	setAttr ".pt[57]" -type "float3" 0 0.016947029 0 ;
+	setAttr ".pt[59]" -type "float3" 0 0.24391258 0 ;
+	setAttr ".pt[72]" -type "float3" 0.060145255 0.016947029 0 ;
+	setAttr ".pt[73]" -type "float3" 0.060145847 0.45414069 0 ;
+	setAttr ".pt[74]" -type "float3" 0.060145847 0.45414069 0 ;
+	setAttr ".pt[75]" -type "float3" 0.060145847 0.45414069 0 ;
+	setAttr ".pt[76]" -type "float3" 0.060145847 0.45414069 0 ;
+	setAttr ".pt[77]" -type "float3" 0.060145847 0.45414069 0 ;
+	setAttr ".pt[78]" -type "float3" 0.060145847 0.45414069 0 ;
+	setAttr ".pt[79]" -type "float3" 0.060145255 0.016947029 0 ;
+	setAttr ".pt[80]" -type "float3" 0.060145255 0.04421629 0 ;
+	setAttr ".pt[81]" -type "float3" 0.060145255 0 0 ;
+	setAttr ".pt[82]" -type "float3" 0.060145255 0 0 ;
+	setAttr ".pt[83]" -type "float3" 0.060145255 0 0 ;
+	setAttr ".pt[84]" -type "float3" 0.060145255 0 0 ;
+	setAttr ".pt[85]" -type "float3" 0.060145255 0 0 ;
+	setAttr ".pt[86]" -type "float3" 0.060145255 0 0 ;
+	setAttr ".pt[87]" -type "float3" 0.060145255 0 0 ;
+	setAttr ".pt[88]" -type "float3" 0.060145255 0 0 ;
+	setAttr ".pt[89]" -type "float3" 0.060145255 0.04421629 0 ;
+createNode transform -n "Roof" -p "|Cabin";
+	rename -uid "31284EF4-47BF-644B-111D-FA90BB2AAE91";
+	setAttr ".t" -type "double3" 0.026601314544677734 4.5228118896484375 2.6448606597942432 ;
+	setAttr ".s" -type "double3" 1 1 9.0919782283842601 ;
+	setAttr ".rp" -type "double3" 0 -0.49999999999999911 2.2204460492503131e-16 ;
+	setAttr ".sp" -type "double3" 0 -0.49999999999999911 0 ;
+	setAttr ".spt" -type "double3" 0 0 2.2204460492503131e-16 ;
+createNode mesh -n "RoofShape" -p "Roof";
+	rename -uid "5F61F02B-45DC-EBC7-1527-91845FA4F629";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".pv" -type "double2" 0.6875 0.6875 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 12 ".pt[0:11]" -type "float3"  -0.25198326 -0.33396763 0 
+		0.73335224 -0.33396769 0 0 -0.28982219 0 0 -0.28982219 0 -0.25198326 -0.33396763 
+		0 0.73335224 -0.33396769 0 -0.25198326 -0.33396763 0 0.73335224 -0.33396769 0 0.73335224 
+		-0.33396769 0 -0.25198326 -0.33396763 0 0 -0.28982219 0 0 -0.28982219 0;
+createNode transform -n "RoofSupportBeams" -p "|Cabin";
+	rename -uid "68E3ED69-46C1-DCDD-FF46-2DA33C16BB92";
+createNode transform -n "RoofSupportBeam01" -p "RoofSupportBeams";
+	rename -uid "AD1B9588-7F40-DE24-CB72-3FB24A2D2E3F";
+	setAttr ".t" -type "double3" 1.5945679728297861 -0.73574708880890682 1.7949842376537006 ;
+	setAttr ".s" -type "double3" 1 1.4229036233729921 1 ;
+	setAttr ".rp" -type "double3" 1.0315280556678772 3.0049310622812708 -2.9848860502243042 ;
+	setAttr ".sp" -type "double3" 1.0315280556678772 2.1118303537368774 -2.9848860502243042 ;
+	setAttr ".spt" -type "double3" 0 0.89310070854439316 0 ;
+createNode mesh -n "RoofSupportBeam01Shape" -p "RoofSupportBeam01";
+	rename -uid "57BD2F76-0A48-34DD-8E3D-908D4699BCC2";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
@@ -60021,9 +60269,10 @@ createNode mesh -n "HouseFoundationShape" -p "HouseFoundation";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".pt[0:7]" -type "float3"  -2.3791156 0 2.1151061 2.3791156 
-		0 2.1151061 -2.3791156 0 2.1151061 2.3791156 0 2.1151061 -2.3791156 0 -4.7130675 
-		2.3791156 0 -4.7130675 -2.3791156 0 -4.7130675 2.3791156 0 -4.7130675;
+	setAttr -s 8 ".pt[0:7]" -type "float3"  1.4336641 1.3880312 -3.387022 
+		0.62939203 1.3880312 -3.387022 1.4336641 2.8442595 -3.387022 0.62939203 2.8442595 
+		-3.387022 1.4336641 2.8442595 -2.5827501 0.62939203 2.8442595 -2.5827501 1.4336641 
+		1.3880312 -2.5827501 0.62939203 1.3880312 -2.5827501;
 	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
 		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
 	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
@@ -60045,111 +60294,146 @@ createNode mesh -n "HouseFoundationShape" -p "HouseFoundation";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "HouseWB";
-	rename -uid "BAD5ED91-40F8-F708-B69B-44A4BAFE6868";
-	setAttr ".rp" -type "double3" -0.45863828617555669 0.42449865005963971 0.95417698180445587 ;
-	setAttr ".sp" -type "double3" -0.45863828617555669 0.42449865005963971 0.95417698180445587 ;
-createNode transform -n "pCone1" -p "HouseWB";
-	rename -uid "90AD5342-4A2F-C2F1-B6F4-FB9D97B9BEA0";
-	setAttr ".t" -type "double3" 0.36373779096673431 0 0.47765485962683707 ;
-	setAttr ".rp" -type "double3" 0.47449429227829565 6.3905531194939904 3.0817114851007346 ;
-	setAttr ".sp" -type "double3" 0.47449429227829565 6.3905531194939904 3.0817114851007346 ;
-createNode mesh -n "pConeShape1" -p "pCone1";
-	rename -uid "40FF3B17-4C88-6744-749C-55ABCDA0A6F7";
+createNode transform -n "RoofSupportBeam02" -p "RoofSupportBeams";
+	rename -uid "B539A23C-664C-71D7-0FB5-5CAF3DB70677";
+	setAttr ".t" -type "double3" 1.5945679728297861 -0.73574708880890682 -1.8226724366842353 ;
+	setAttr ".s" -type "double3" 1 1.4229036233729921 1 ;
+	setAttr ".rp" -type "double3" 1.0315280556678772 3.0049310622812708 3.0028595924377441 ;
+	setAttr ".sp" -type "double3" 1.0315280556678772 2.1118303537368774 3.0028595924377441 ;
+	setAttr ".spt" -type "double3" 0 0.89310070854439316 0 ;
+createNode mesh -n "RoofSupportBeam02Shape" -p "RoofSupportBeam02";
+	rename -uid "4232B6C0-B44F-C622-2046-D5B9546C202D";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr -s 2 ".gtag";
-	setAttr ".gtag[0].gtagnm" -type "string" "bottom";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[0]";
-	setAttr ".gtag[1].gtagnm" -type "string" "sides";
-	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[1:20]";
+	setAttr -s 6 ".gtag";
+	setAttr ".gtag[0].gtagnm" -type "string" "back";
+	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[2]";
+	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
+	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[3]";
+	setAttr ".gtag[2].gtagnm" -type "string" "front";
+	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
+	setAttr ".gtag[3].gtagnm" -type "string" "left";
+	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[5]";
+	setAttr ".gtag[4].gtagnm" -type "string" "right";
+	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[4]";
+	setAttr ".gtag[5].gtagnm" -type "string" "top";
+	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
+	setAttr ".pv" -type "double2" 0.5 0.375 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 42 ".uvst[0].uvsp[0:41]" -type "float2" 0.7377643 0.1727457
-		 0.70225441 0.1030536 0.64694643 0.04774563 0.5772543 0.012235746 0.5 -1.1920929e-07
-		 0.4227457 0.012235761 0.35305363 0.047745675 0.2977457 0.10305364 0.26223582 0.17274573
-		 0.24999994 0.25 0.26223582 0.32725427 0.2977457 0.39694634 0.35305366 0.4522543 0.42274573
-		 0.48776418 0.5 0.5 0.57725424 0.48776415 0.64694631 0.45225427 0.70225424 0.39694631
-		 0.73776412 0.32725424 0.75 0.25 0.25 0.5 0.27500001 0.5 0.30000001 0.5 0.32500002
-		 0.5 0.35000002 0.5 0.37500003 0.5 0.40000004 0.5 0.42500004 0.5 0.45000005 0.5 0.47500005
-		 0.5 0.50000006 0.5 0.52500004 0.5 0.55000001 0.5 0.57499999 0.5 0.59999996 0.5 0.62499994
-		 0.5 0.64999992 0.5 0.67499989 0.5 0.69999987 0.5 0.72499985 0.5 0.74999982 0.5 0.5
-		 1;
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 21 ".pt[0:20]" -type "float3"  0 0 6.1697197 0 0 7.8969517 
-		0 0 9.2676916 0 0 10.147759 0 0 10.451011 0 0 10.147759 0 0 9.2676907 0 0 7.8969507 
-		0 0 6.1697187 0 0 4.2550678 0 0 2.3404167 0 0 0.61318487 0 0 -0.75755364 0 0 -1.6376225 
-		0 0 -1.9408733 0 0 -1.637622 0 0 -0.75755364 0 0 0.61318535 0 0 2.3404169 0 0 4.2550678 
-		0 0 4.2550678;
-	setAttr -s 21 ".vt[0:20]"  3.42084074 6.39055252 -2.13068295 2.98080635 6.39055252 -2.99429893
-		 2.29543638 6.39055252 -3.6796689 1.43182015 6.39055252 -4.11970282 0.47449431 6.39055252 -4.27132845
-		 -0.48283157 6.39055252 -4.11970282 -1.34644747 6.39055252 -3.67966843 -2.031816959 6.39055252 -2.99429846
-		 -2.47185111 6.39055252 -2.13068247 -2.62347651 6.39055252 -1.17335689 -2.47185111 6.39055252 -0.21603131
-		 -2.031816721 6.39055252 0.64758456 -1.34644711 6.39055252 1.33295381 -0.48283127 6.39055252 1.7729882
-		 0.47449422 6.39055252 1.9246136 1.43181968 6.39055252 1.77298796 2.29543543 6.39055252 1.33295381
-		 2.98080468 6.39055252 0.64758432 3.42083883 6.39055252 -0.21603149 3.57246423 6.39055252 -1.17335689
-		 0.47449431 11.4244194 -1.17335689;
-	setAttr -s 40 ".ed[0:39]"  0 1 0 1 2 0 2 3 0 3 4 0 4 5 0 5 6 0 6 7 0
-		 7 8 0 8 9 0 9 10 0 10 11 0 11 12 0 12 13 0 13 14 0 14 15 0 15 16 0 16 17 0 17 18 0
-		 18 19 0 19 0 0 0 20 1 1 20 1 2 20 1 3 20 1 4 20 1 5 20 1 6 20 1 7 20 1 8 20 1 9 20 1
-		 10 20 1 11 20 1 12 20 1 13 20 1 14 20 1 15 20 1 16 20 1 17 20 1 18 20 1 19 20 1;
-	setAttr -s 21 -ch 80 ".fc[0:20]" -type "polyFaces" 
-		f 20 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
-		mu 0 20 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
-		f 3 20 -22 -1
-		mu 0 3 20 41 21
-		f 3 21 -23 -2
-		mu 0 3 21 41 22
-		f 3 22 -24 -3
-		mu 0 3 22 41 23
-		f 3 23 -25 -4
-		mu 0 3 23 41 24
-		f 3 24 -26 -5
-		mu 0 3 24 41 25
-		f 3 25 -27 -6
-		mu 0 3 25 41 26
-		f 3 26 -28 -7
-		mu 0 3 26 41 27
-		f 3 27 -29 -8
-		mu 0 3 27 41 28
-		f 3 28 -30 -9
-		mu 0 3 28 41 29
-		f 3 29 -31 -10
-		mu 0 3 29 41 30
-		f 3 30 -32 -11
-		mu 0 3 30 41 31
-		f 3 31 -33 -12
-		mu 0 3 31 41 32
-		f 3 32 -34 -13
-		mu 0 3 32 41 33
-		f 3 33 -35 -14
-		mu 0 3 33 41 34
-		f 3 34 -36 -15
-		mu 0 3 34 41 35
-		f 3 35 -37 -16
-		mu 0 3 35 41 36
-		f 3 36 -38 -17
-		mu 0 3 36 41 37
-		f 3 37 -39 -18
-		mu 0 3 37 41 38
-		f 3 38 -40 -19
-		mu 0 3 38 41 39
-		f 3 39 -21 -20
-		mu 0 3 39 41 40;
+	setAttr -s 8 ".pt[0:7]" -type "float3"  1.4336641 1.3880312 2.6007235 
+		0.62939203 1.3880312 2.6007235 1.4336641 2.8442595 2.6007235 0.62939203 2.8442595 
+		2.6007235 1.4336641 2.8442595 3.4049957 0.62939203 2.8442595 3.4049957 1.4336641 
+		1.3880312 3.4049957 0.62939203 1.3880312 3.4049957;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
 	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "pCube3" -p "HouseWB";
-	rename -uid "6D9D1221-424A-D31A-4948-C6BD3B4F62FA";
-	setAttr ".s" -type "double3" 1 1 1.3245190267891285 ;
-	setAttr ".rp" -type "double3" -0.093850548183213478 5.0353475525453835 -1.5285741890034692 ;
-	setAttr ".sp" -type "double3" -0.093850548183213478 5.0353475525453835 -1.5285741890034692 ;
-createNode mesh -n "pCubeShape3" -p "pCube3";
-	rename -uid "A1EB20FB-4C3D-47A3-206E-77B8B95001DB";
+createNode transform -n "RoofSupportBeam03" -p "RoofSupportBeams";
+	rename -uid "F7275F69-4A5E-F222-57AF-688A7A76AC34";
+	setAttr ".t" -type "double3" 1.5945679728297861 -0.73574708880890682 3.4476285226862693 ;
+	setAttr ".s" -type "double3" 1 1.4229036233729921 1 ;
+	setAttr ".rp" -type "double3" 1.0315280556678772 3.0049310622812708 3.0028595924377441 ;
+	setAttr ".sp" -type "double3" 1.0315280556678772 2.1118303537368774 3.0028595924377441 ;
+	setAttr ".spt" -type "double3" 0 0.89310070854439316 0 ;
+createNode mesh -n "RoofSupportBeam03Shape" -p "RoofSupportBeam03";
+	rename -uid "7A0D1B9E-4AC4-5AEC-671C-7CBC4CF04742";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr -s 6 ".gtag";
+	setAttr ".gtag[0].gtagnm" -type "string" "back";
+	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[2]";
+	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
+	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[3]";
+	setAttr ".gtag[2].gtagnm" -type "string" "front";
+	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
+	setAttr ".gtag[3].gtagnm" -type "string" "left";
+	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[5]";
+	setAttr ".gtag[4].gtagnm" -type "string" "right";
+	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[4]";
+	setAttr ".gtag[5].gtagnm" -type "string" "top";
+	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
+	setAttr ".pv" -type "double2" 0.5 0.375 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".pt[0:7]" -type "float3"  1.4336641 1.3880312 2.6007235 
+		0.62939203 1.3880312 2.6007235 1.4336641 2.8442595 2.6007235 0.62939203 2.8442595 
+		2.6007235 1.4336641 2.8442595 3.4049957 0.62939203 2.8442595 3.4049957 1.4336641 
+		1.3880312 3.4049957 0.62939203 1.3880312 3.4049957;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "RoofTile01";
+	rename -uid "68E67192-4B20-12B0-D023-6E8371A1A700";
+	setAttr ".t" -type "double3" 1.1540859222241315 4.9285302395509873 0 ;
+	setAttr ".r" -type "double3" 0 0 -20.281045132757004 ;
+	setAttr ".s" -type "double3" 0.76017591033956844 0.034156012686630662 0.37473992259884442 ;
+createNode mesh -n "RoofTileShape1" -p "|RoofTile01";
+	rename -uid "E73360AE-4817-DD78-20CD-4694E826E745";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+createNode transform -n "RoofTile139";
+	rename -uid "2996CFDD-4D4C-D98B-513A-2682060F1C40";
+	setAttr ".t" -type "double3" 1.338708682626659 4.8482927533603979 0.40736828141083203 ;
+	setAttr ".r" -type "double3" 0 0 -20.281045132757004 ;
+	setAttr ".s" -type "double3" 0.76017591033956844 0.034156012686630662 0.37473992259884442 ;
+createNode mesh -n "RoofTileShape139" -p "RoofTile139";
+	rename -uid "BDC57EC0-4DCF-3BA0-02F7-08AC0F0C88AC";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
@@ -60174,147 +60458,34 @@ createNode mesh -n "pCubeShape3" -p "pCube3";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".pt[0:7]" -type "float3"  -0.77616799 5.298512 -2.8069346 
-		0.58846688 5.298512 -2.8069346 -0.77616799 5.6597862 -2.8069346 0.58846688 5.6597862 
-		-2.8069346 -0.77616799 5.6597862 -0.25021386 0.58846688 5.6597862 -0.25021386 -0.77616799 
-		5.298512 -0.25021386 0.58846688 5.298512 -0.25021386;
 	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
 		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
 	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
 		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
 	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 4 1 -6 -1
-		mu 0 4 0 2 3 1
-		f 4 6 2 -8 -2
-		mu 0 4 2 4 5 3
-		f 4 8 3 -10 -3
-		mu 0 4 4 6 7 5
-		f 4 10 0 -12 -4
-		mu 0 4 6 8 9 7
-		f 4 5 7 9 11
-		mu 0 4 1 3 11 10
-		f 4 -9 -7 -5 -11
-		mu 0 4 12 13 2 0;
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
 	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "pCube5" -p "HouseWB";
-	rename -uid "3A9826A7-4526-0E2F-E851-9E92B1E94E7D";
-	setAttr ".s" -type "double3" 1 1 1.3245190267891285 ;
-	setAttr ".rp" -type "double3" 0.4613547325794487 6.0743823671603696 -1.5113946154067528 ;
-	setAttr ".sp" -type "double3" 0.4613547325794487 6.0743823671603696 -1.5113946154067528 ;
-createNode mesh -n "pCubeShape5" -p "pCube5";
-	rename -uid "784D1A1F-4EEB-251F-8F36-709DD5C9B9F5";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr -s 6 ".gtag";
-	setAttr ".gtag[0].gtagnm" -type "string" "back";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[1]";
-	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
-	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[2]";
-	setAttr ".gtag[2].gtagnm" -type "string" "front";
-	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
-	setAttr ".gtag[3].gtagnm" -type "string" "left";
-	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[4]";
-	setAttr ".gtag[4].gtagnm" -type "string" "right";
-	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[3]";
-	setAttr ".gtag[5].gtagnm" -type "string" "top";
-	setAttr ".gtag[5].gtagcmp" -type "componentList" 0;
-	setAttr ".pv" -type "double2" 0.2916666567325592 0.3333333432674408 ;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 10 ".uvst[0].uvsp[0:9]" -type "float2" 0.375 0 0.625 0 0.29166666
-		 0.33333334 0.70833331 0.33333334 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0 0.125
-		 0;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 6 ".pt[0:5]" -type "float3"  0.22816229 6.5743823 -2.9561057 
-		0.69454718 6.5743823 -2.9561057 0.22816244 6.5485649 -1.5113947 0.69454706 6.5485649 
-		-1.5113946 0.22816241 6.5743823 -0.066683769 0.69454718 6.5743823 -0.066683769;
-	setAttr -s 6 ".vt[0:5]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0 0.5 0.5 0
-		 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 9 ".ed[0:8]"  0 1 0 2 3 0 4 5 0 0 2 0 1 3 0 2 4 0 3 5 0
-		 4 0 0 5 1 0;
-	setAttr -s 5 -ch 18 ".fc[0:4]" -type "polyFaces" 
-		f 4 3 1 -5 -1
-		mu 0 4 0 2 3 1
-		f 4 5 2 -7 -2
-		mu 0 4 2 4 5 3
-		f 4 7 0 -9 -3
-		mu 0 4 4 6 7 5
-		f 3 4 6 8
-		mu 0 3 1 3 8
-		f 3 -6 -4 -8
-		mu 0 3 9 2 0;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "pCube6" -p "HouseWB";
-	rename -uid "FEBFFC6B-47DA-557F-1370-C0AC14247F2F";
-	setAttr ".r" -type "double3" 0 90 0 ;
-	setAttr ".s" -type "double3" 1.0073076694175991 1 1 ;
-	setAttr ".rp" -type "double3" -0.96388342937932625 4.8905244088418165 -1.2539500074659125 ;
-	setAttr ".sp" -type "double3" -0.96388342937932625 4.8905244088418165 -1.2539500074659125 ;
-createNode mesh -n "pCubeShape6" -p "pCube6";
-	rename -uid "89BDF28E-4D56-E2DE-870D-65807552BD7D";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr -s 6 ".gtag";
-	setAttr ".gtag[0].gtagnm" -type "string" "back";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[1]";
-	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
-	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[2]";
-	setAttr ".gtag[2].gtagnm" -type "string" "front";
-	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
-	setAttr ".gtag[3].gtagnm" -type "string" "left";
-	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[4]";
-	setAttr ".gtag[4].gtagnm" -type "string" "right";
-	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[3]";
-	setAttr ".gtag[5].gtagnm" -type "string" "top";
-	setAttr ".gtag[5].gtagcmp" -type "componentList" 0;
-	setAttr ".pv" -type "double2" 0.2916666567325592 0.3333333432674408 ;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 10 ".uvst[0].uvsp[0:9]" -type "float2" 0.375 0 0.625 0 0.29166666
-		 0.33333334 0.70833331 0.33333334 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0 0.125
-		 0;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 6 ".pt[0:5]" -type "float3"  -3.7818742 4.489821 -4.3918242 
-		1.8541073 4.489821 -4.3918242 -3.7818742 6.6876011 -1.2539501 1.8541073 6.6876011 
-		-1.2539501 -3.7818742 4.489821 1.883924 1.8541073 4.489821 1.883924;
-	setAttr -s 6 ".vt[0:5]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0 0.5 0.5 0
-		 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 9 ".ed[0:8]"  0 1 0 2 3 0 4 5 0 0 2 0 1 3 0 2 4 0 3 5 0
-		 4 0 0 5 1 0;
-	setAttr -s 5 -ch 18 ".fc[0:4]" -type "polyFaces" 
-		f 4 3 1 -5 -1
-		mu 0 4 0 2 3 1
-		f 4 5 2 -7 -2
-		mu 0 4 2 4 5 3
-		f 4 7 0 -9 -3
-		mu 0 4 4 6 7 5
-		f 3 4 6 8
-		mu 0 3 1 3 8
-		f 3 -6 -4 -8
-		mu 0 3 9 2 0;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "pCube2" -p "HouseWB";
-	rename -uid "A4E28C49-45C6-A485-F2EB-D5A02731CB16";
-	setAttr ".s" -type "double3" 0.78283357878257442 1 1.2799253509069601 ;
-	setAttr ".rp" -type "double3" -0.96155682858285363 0.55381837181398952 -1.3686298944056645 ;
-	setAttr ".sp" -type "double3" -0.96155682858285363 0.55381837181398952 -1.3686298944056645 ;
-createNode mesh -n "pCubeShape2" -p "pCube2";
-	rename -uid "98974210-44EC-24D5-0CF5-DE8B467D98AE";
+createNode transform -n "RoofTile140";
+	rename -uid "CAEA5BFA-45BA-B191-AFDF-DC84978487C0";
+	setAttr ".t" -type "double3" 1.7392815589233046 4.6947743913096378 -0.3909750864291307 ;
+	setAttr ".r" -type "double3" 0 0 -20.281045132757004 ;
+	setAttr ".s" -type "double3" 0.76017591033956844 0.034156012686630662 0.37473992259884442 ;
+createNode mesh -n "RoofTileShape140" -p "RoofTile140";
+	rename -uid "5B60D8EE-478E-5DB2-6AE2-BAB21CC59A1E";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
@@ -60339,153 +60510,193 @@ createNode mesh -n "pCubeShape2" -p "pCube2";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".pt[0:7]" -type "float3"  -3.4178214 1.0538183 -4.0514894 
-		1.4947077 1.0538183 -4.0514894 -3.4178214 3.5138865 -4.0514894 1.4947077 3.5138865 
-		-4.0514894 -3.4178214 3.5138865 1.3142295 1.4947077 3.5138865 1.3142295 -3.4178214 
-		1.0538183 1.3142295 1.4947077 1.0538183 1.3142295;
 	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
 		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
 	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
 		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
 	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 4 1 -6 -1
-		mu 0 4 0 2 3 1
-		f 4 6 2 -8 -2
-		mu 0 4 2 4 5 3
-		f 4 8 3 -10 -3
-		mu 0 4 4 6 7 5
-		f 4 10 0 -12 -4
-		mu 0 4 6 8 9 7
-		f 4 5 7 9 11
-		mu 0 4 1 3 11 10
-		f 4 -9 -7 -5 -11
-		mu 0 4 12 13 2 0;
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
 	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "pCylinder1" -p "HouseWB";
-	rename -uid "E7B09430-4EDE-0C76-2BDB-D38E320555B1";
-	setAttr ".t" -type "double3" 0.36373779096673431 0 0.47765485962683707 ;
-	setAttr ".rp" -type "double3" 0.45558468370823235 0.40923280482960456 3.0859605616190189 ;
-	setAttr ".sp" -type "double3" 0.45558468370823235 0.409232804829605 3.0859605616190189 ;
-createNode mesh -n "pCylinderShape2" -p "pCylinder1";
-	rename -uid "7EEBA881-4C46-51FD-9306-11B7FCE4E17C";
+createNode transform -n "RoofTile141";
+	rename -uid "01CDB0F8-474C-1DEE-B1B5-0CBFB5E06097";
+	setAttr ".t" -type "double3" 1.265089893552745 4.892093233735924 -0.3909750864291307 ;
+	setAttr ".r" -type "double3" 0 0 -17.544097930593868 ;
+	setAttr ".s" -type "double3" 0.76017591033956844 0.034156012686630662 0.37473992259884442 ;
+createNode mesh -n "RoofTileShape141" -p "RoofTile141";
+	rename -uid "28A37C87-4DDD-D167-93BA-19907B2393B6";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr -s 10 ".gtag";
-	setAttr ".gtag[0].gtagnm" -type "string" "bottom";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[8:15]";
-	setAttr ".gtag[1].gtagnm" -type "string" "bottomRing";
-	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "e[0:7]";
-	setAttr ".gtag[2].gtagnm" -type "string" "cylBottomCap";
-	setAttr ".gtag[2].gtagcmp" -type "componentList" 2 "vtx[0:7]" "vtx[16]";
-	setAttr ".gtag[3].gtagnm" -type "string" "cylBottomRing";
-	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "vtx[0:7]";
-	setAttr ".gtag[4].gtagnm" -type "string" "cylSides";
-	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "vtx[0:15]";
-	setAttr ".gtag[5].gtagnm" -type "string" "cylTopCap";
-	setAttr ".gtag[5].gtagcmp" -type "componentList" 2 "vtx[8:15]" "vtx[17]";
-	setAttr ".gtag[6].gtagnm" -type "string" "cylTopRing";
-	setAttr ".gtag[6].gtagcmp" -type "componentList" 1 "vtx[8:15]";
-	setAttr ".gtag[7].gtagnm" -type "string" "sides";
-	setAttr ".gtag[7].gtagcmp" -type "componentList" 1 "f[0:7]";
-	setAttr ".gtag[8].gtagnm" -type "string" "top";
-	setAttr ".gtag[8].gtagcmp" -type "componentList" 1 "f[16:23]";
-	setAttr ".gtag[9].gtagnm" -type "string" "topRing";
-	setAttr ".gtag[9].gtagcmp" -type "componentList" 1 "e[8:15]";
+	setAttr -s 6 ".gtag";
+	setAttr ".gtag[0].gtagnm" -type "string" "back";
+	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[2]";
+	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
+	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[3]";
+	setAttr ".gtag[2].gtagnm" -type "string" "front";
+	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
+	setAttr ".gtag[3].gtagnm" -type "string" "left";
+	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[5]";
+	setAttr ".gtag[4].gtagnm" -type "string" "right";
+	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[4]";
+	setAttr ".gtag[5].gtagnm" -type "string" "top";
+	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 36 ".uvst[0].uvsp[0:35]" -type "float2" 0.61048543 0.04576458
-		 0.5 1.4901161e-08 0.38951457 0.04576458 0.34375 0.15625 0.38951457 0.26673543 0.5
-		 0.3125 0.61048543 0.26673543 0.65625 0.15625 0.375 0.3125 0.40625 0.3125 0.4375 0.3125
-		 0.46875 0.3125 0.5 0.3125 0.53125 0.3125 0.5625 0.3125 0.59375 0.3125 0.625 0.3125
-		 0.375 0.6875 0.40625 0.6875 0.4375 0.6875 0.46875 0.6875 0.5 0.6875 0.53125 0.6875
-		 0.5625 0.6875 0.59375 0.6875 0.625 0.6875 0.61048543 0.73326457 0.5 0.6875 0.38951457
-		 0.73326457 0.34375 0.84375 0.38951457 0.95423543 0.5 1 0.61048543 0.95423543 0.65625
-		 0.84375 0.5 0.15625 0.5 0.84375;
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 18 ".pt[0:17]" -type "float3"  0 0 8.083539 0 0 9.6658239 
-		0 0 8.083539 0 0 4.263567 0 0 0.44359508 0 0 -1.1386894 0 0 0.4435946 0 0 4.263567 
-		0 0 8.083539 0 0 9.6658239 0 0 8.083539 0 0 4.263567 0 0 0.44359508 0 0 -1.1386894 
-		0 0 0.4435946 0 0 4.263567 0 0 4.263567 0 0 4.263567;
-	setAttr -s 18 ".vt[0:17]"  2.36557078 0.40923285 -3.087592602 0.45558468 0.40923285 -3.87873483
-		 -1.45440137 0.40923285 -3.087592602 -2.24554348 0.40923285 -1.17760658 -1.45440137 0.40923285 0.73237944
-		 0.45558468 0.40923285 1.52352166 2.36557102 0.40923285 0.73237967 3.15671325 0.40923285 -1.17760658
-		 2.36557078 6.3897934 -3.087592602 0.45558468 6.3897934 -3.87873483 -1.45440137 6.3897934 -3.087592602
-		 -2.24554348 6.3897934 -1.17760658 -1.45440137 6.3897934 0.73237944 0.45558468 6.3897934 1.52352166
-		 2.36557102 6.3897934 0.73237967 3.15671325 6.3897934 -1.17760658 0.45558468 0.40923285 -1.17760658
-		 0.45558468 6.3897934 -1.17760658;
-	setAttr -s 40 ".ed[0:39]"  0 1 0 1 2 0 2 3 0 3 4 0 4 5 0 5 6 0 6 7 0
-		 7 0 0 8 9 0 9 10 0 10 11 0 11 12 0 12 13 0 13 14 0 14 15 0 15 8 0 0 8 0 1 9 0 2 10 0
-		 3 11 0 4 12 0 5 13 0 6 14 0 7 15 0 16 0 1 16 1 1 16 2 1 16 3 1 16 4 1 16 5 1 16 6 1
-		 16 7 1 8 17 1 9 17 1 10 17 1 11 17 1 12 17 1 13 17 1 14 17 1 15 17 1;
-	setAttr -s 24 -ch 80 ".fc[0:23]" -type "polyFaces" 
-		f 4 16 8 -18 -1
-		mu 0 4 8 17 18 9
-		f 4 17 9 -19 -2
-		mu 0 4 9 18 19 10
-		f 4 18 10 -20 -3
-		mu 0 4 10 19 20 11
-		f 4 19 11 -21 -4
-		mu 0 4 11 20 21 12
-		f 4 20 12 -22 -5
-		mu 0 4 12 21 22 13
-		f 4 21 13 -23 -6
-		mu 0 4 13 22 23 14
-		f 4 22 14 -24 -7
-		mu 0 4 14 23 24 15
-		f 4 23 15 -17 -8
-		mu 0 4 15 24 25 16
-		f 3 -26 24 0
-		mu 0 3 1 34 0
-		f 3 -27 25 1
-		mu 0 3 2 34 1
-		f 3 -28 26 2
-		mu 0 3 3 34 2
-		f 3 -29 27 3
-		mu 0 3 4 34 3
-		f 3 -30 28 4
-		mu 0 3 5 34 4
-		f 3 -31 29 5
-		mu 0 3 6 34 5
-		f 3 -32 30 6
-		mu 0 3 7 34 6
-		f 3 -25 31 7
-		mu 0 3 0 34 7
-		f 3 32 -34 -9
-		mu 0 3 32 35 31
-		f 3 33 -35 -10
-		mu 0 3 31 35 30
-		f 3 34 -36 -11
-		mu 0 3 30 35 29
-		f 3 35 -37 -12
-		mu 0 3 29 35 28
-		f 3 36 -38 -13
-		mu 0 3 28 35 27
-		f 3 37 -39 -14
-		mu 0 3 27 35 26
-		f 3 38 -40 -15
-		mu 0 3 26 35 33
-		f 3 39 -33 -16
-		mu 0 3 33 35 32;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "RoofTile142";
+	rename -uid "3526F16B-43C9-5924-F62C-0B8B651ECB11";
+	setAttr ".t" -type "double3" 1.6241482242405187 4.7417545759105 0.0020029771318502698 ;
+	setAttr ".r" -type "double3" 0 0 -17.544097930593868 ;
+	setAttr ".s" -type "double3" 0.76017591033956844 0.034156012686630662 0.37473992259884442 ;
+createNode mesh -n "RoofTileShape142" -p "RoofTile142";
+	rename -uid "247BAA76-4F03-51EF-44B2-9492620AC74B";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr -s 6 ".gtag";
+	setAttr ".gtag[0].gtagnm" -type "string" "back";
+	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[2]";
+	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
+	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[3]";
+	setAttr ".gtag[2].gtagnm" -type "string" "front";
+	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
+	setAttr ".gtag[3].gtagnm" -type "string" "left";
+	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[5]";
+	setAttr ".gtag[4].gtagnm" -type "string" "right";
+	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[4]";
+	setAttr ".gtag[5].gtagnm" -type "string" "top";
+	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "RoofTile143";
+	rename -uid "7DF2188C-454B-BAA8-CB25-A89BC51F2691";
+	setAttr ".t" -type "double3" 0.89936633645651187 5.0316913078926921 0.3995440304623511 ;
+	setAttr ".r" -type "double3" 0 0 -17.544097930593868 ;
+	setAttr ".s" -type "double3" 0.76017591033956844 0.034156012686630662 0.37473992259884442 ;
+createNode mesh -n "RoofTileShape143" -p "RoofTile143";
+	rename -uid "FFCF45D1-42EE-F2BB-B13D-A38A51645D29";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr -s 6 ".gtag";
+	setAttr ".gtag[0].gtagnm" -type "string" "back";
+	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[2]";
+	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
+	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[3]";
+	setAttr ".gtag[2].gtagnm" -type "string" "front";
+	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
+	setAttr ".gtag[3].gtagnm" -type "string" "left";
+	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[5]";
+	setAttr ".gtag[4].gtagnm" -type "string" "right";
+	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[4]";
+	setAttr ".gtag[5].gtagnm" -type "string" "top";
+	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
 	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "0857F8F8-44C9-F669-495B-F9A8F7F209BA";
+	rename -uid "F9482ADA-4D61-FCC2-EEA4-0ABE933E0F6F";
 	setAttr -s 4 ".lnk";
 	setAttr -s 4 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "8B080BB3-44E0-48BC-1239-D49C829C9892";
+	rename -uid "BD0FA02B-49B4-6C1D-CCDD-F49A4D04846D";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "79EC4510-4C1D-A5D1-4A76-58B6CFD9EDA5";
+	rename -uid "C5B00048-4126-A639-81C9-F081DE0A4046";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "DAD7F684-4DD3-4483-4E66-B7A62C377D42";
+	rename -uid "20425906-42E2-643F-B540-F4B406E4598E";
 	setAttr ".cdl" 5;
 	setAttr -s 6 ".dli[1:5]"  4 2 3 1 5;
 	setAttr -s 6 ".dli";
@@ -60493,7 +60704,7 @@ createNode displayLayer -n "defaultLayer";
 	rename -uid "9E3AE963-C14E-D3D6-1564-0192187DFFCC";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "3201537A-45A5-37B0-C255-5AB6862838EE";
+	rename -uid "E18A6EE3-409F-81A1-CC20-189F18C2446C";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "69FE7131-684A-6CDD-47FA-FEB631D8EE9B";
 	setAttr ".g" yes;
@@ -60539,17 +60750,17 @@ createNode script -n "uiConfigurationScriptNode";
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $nodeEditorPanelVisible = stringArrayContains(\"nodeEditorPanel1\", `getPanel -vis`);\n\tint    $nodeEditorWorkspaceControlOpen = (`workspaceControl -exists nodeEditorPanel1Window` && `workspaceControl -q -visible nodeEditorPanel1Window`);\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\n\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 1\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
 		+ "            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n"
-		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 826\n            -height 488\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n"
+		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 827\n            -height 488\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n"
 		+ "            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n"
 		+ "            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n"
-		+ "            -shadows 0\n            -captureSequenceNumber -1\n            -width 826\n            -height 488\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 1\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n"
+		+ "            -shadows 0\n            -captureSequenceNumber -1\n            -width 827\n            -height 488\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 1\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n"
 		+ "            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n"
 		+ "            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n"
-		+ "            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 826\n            -height 488\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n"
+		+ "            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 827\n            -height 488\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n"
 		+ "        modelEditor -e \n            -camera \"|persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n"
 		+ "            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 0\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n"
-		+ "            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1660\n            -height 1043\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n"
+		+ "            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1662\n            -height 1043\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n"
 		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -autoExpandAllAnimatedShapes 1\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n"
 		+ "            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -showUfeItems 1\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n"
 		+ "            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n"
@@ -60572,8 +60783,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"profilerPanel\" (localizedPanelLabel(\"Profiler Tool\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"contentBrowserPanel\" (localizedPanelLabel(\"Content Browser\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Content Browser\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap true\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1660\\n    -height 1043\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1660\\n    -height 1043\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1662\\n    -height 1043\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 0\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1662\\n    -height 1043\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 10 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -60798,8 +61009,334 @@ createNode groupId -n "groupId74";
 createNode groupId -n "groupId75";
 	rename -uid "90C79A8F-4E06-17CD-1439-AC97E78D8BA0";
 	setAttr ".ihi" 0;
+createNode polyCube -n "polyCube1";
+	rename -uid "9CD667FB-41A5-C5E6-491E-0A9BB0B3E01C";
+	setAttr ".sh" 4;
+	setAttr ".cuv" 4;
+createNode polySplitRing -n "polySplitRing1";
+	rename -uid "6E4D4612-4FE2-6F57-4879-6D8B643D5DB9";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 2 "e[18:19]" "e[28:35]";
+	setAttr ".ix" -type "matrix" 5.6895955323792755 0 0 0 0 3.8186880361944477 0 0 0 0 8.2998278430854526 0
+		 -0.096944040136372145 1.5168625887419518 1.1518324964773025e-16 1;
+	setAttr ".wt" 0.6699756383895874;
+	setAttr ".dr" no;
+	setAttr ".re" 32;
+	setAttr ".sma" 29.999999999999996;
+	setAttr ".p[0]"  0 0 1;
+	setAttr ".fq" yes;
+createNode polyTweak -n "polyTweak1";
+	rename -uid "39B12C01-4777-EDC0-D8D2-89AD0D514375";
+	setAttr ".uopa" yes;
+	setAttr -s 16 ".tk[2:17]" -type "float3"  0 -0.0089965165 0 0 -0.0089965165
+		 0 0 0.01777124 0 0 0.01777124 0 0 0.1564668 0 0 0.1564668 0 0 0.15623288 0 0 0.15623288
+		 0 0 0.15623288 0 0 0.15623288 0 0 0.1564668 0 0 0.1564668 0 0 0.01777124 0 0 0.01777124
+		 0 0 -0.0089965165 0 0 -0.0089965165 0;
+createNode polySplitRing -n "polySplitRing2";
+	rename -uid "B7E672D9-44DA-F889-7BC2-8EAAF499B406";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 3 "e[28:35]" "e[51]" "e[53]";
+	setAttr ".ix" -type "matrix" 5.6895955323792755 0 0 0 0 3.8186880361944477 0 0 0 0 8.2998278430854526 0
+		 -0.096944040136372145 1.5168625887419518 1.1518324964773025e-16 1;
+	setAttr ".wt" 0.67101579904556274;
+	setAttr ".dr" no;
+	setAttr ".re" 32;
+	setAttr ".sma" 29.999999999999996;
+	setAttr ".p[0]"  0 0 1;
+	setAttr ".fq" yes;
+createNode polySplitRing -n "polySplitRing3";
+	rename -uid "B68EEC80-4748-B06E-09C4-E680977C71FF";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 3 "e[28:35]" "e[71]" "e[73]";
+	setAttr ".ix" -type "matrix" 5.6895955323792755 0 0 0 0 3.8186880361944477 0 0 0 0 8.2998278430854526 0
+		 -0.096944040136372145 1.5168625887419518 1.1518324964773025e-16 1;
+	setAttr ".wt" 0.77442431449890137;
+	setAttr ".dr" no;
+	setAttr ".re" 32;
+	setAttr ".sma" 29.999999999999996;
+	setAttr ".p[0]"  0 0 1;
+	setAttr ".fq" yes;
+createNode polySplitRing -n "polySplitRing4";
+	rename -uid "44D61513-469C-559F-2B5E-D391617921EA";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 3 "e[28:35]" "e[91]" "e[93]";
+	setAttr ".ix" -type "matrix" 5.6895955323792755 0 0 0 0 3.8186880361944477 0 0 0 0 8.2998278430854526 0
+		 -0.096944040136372145 1.5168625887419518 1.1518324964773025e-16 1;
+	setAttr ".wt" 0.32984516024589539;
+	setAttr ".re" 32;
+	setAttr ".sma" 29.999999999999996;
+	setAttr ".p[0]"  0 0 1;
+	setAttr ".fq" yes;
+createNode polyExtrudeFace -n "polyExtrudeFace1";
+	rename -uid "D7B4AEEC-4C6D-05EF-6EB9-EDB2B96EE969";
+	setAttr ".ics" -type "componentList" 5 "f[10]" "f[20]" "f[30]" "f[40]" "f[50]";
+	setAttr ".ix" -type "matrix" 5.6895955323792755 0 0 0 0 3.8186880361944477 0 0 0 0 8.2998278430854526 0
+		 -0.096944040136372145 1.5168625887419518 1.6299652335298036 1;
+	setAttr ".ws" yes;
+	setAttr ".pvt" -type "float3" 2.7478538 0.067677185 1.6299652 ;
+	setAttr ".rs" 34361;
+	setAttr ".c[0]"  0 1 1;
+	setAttr ".cbn" -type "double3" 2.7478537260532656 -0.39248142935527208 -2.5199486880129225 ;
+	setAttr ".cbx" -type "double3" 2.7478537260532656 0.52783580370243377 5.7798791550725301 ;
+	setAttr ".raf" no;
+createNode polyTweak -n "polyTweak2";
+	rename -uid "E995C2BA-41CB-9B0F-E5E7-6E81D8496ECC";
+	setAttr ".uopa" yes;
+	setAttr -s 56 ".tk";
+	setAttr ".tk[4]" -type "float3" 0 0.043798193 0 ;
+	setAttr ".tk[5]" -type "float3" 0 0.043798193 0 ;
+	setAttr ".tk[6]" -type "float3" 0 0.069987603 0 ;
+	setAttr ".tk[7]" -type "float3" 0 0.069987603 0 ;
+	setAttr ".tk[12]" -type "float3" 0 0.069987603 0 ;
+	setAttr ".tk[13]" -type "float3" 0 0.069987603 0 ;
+	setAttr ".tk[14]" -type "float3" 0 0.043798193 0 ;
+	setAttr ".tk[15]" -type "float3" 0 0.043798193 0 ;
+	setAttr ".tk[20]" -type "float3" 0 0.069987603 0.21467112 ;
+	setAttr ".tk[21]" -type "float3" 0 0.043798193 0.21467112 ;
+	setAttr ".tk[22]" -type "float3" 0 0 0.21467109 ;
+	setAttr ".tk[23]" -type "float3" 0 0 0.21467109 ;
+	setAttr ".tk[24]" -type "float3" 0 0 0.21467109 ;
+	setAttr ".tk[25]" -type "float3" 0 0 0.21467109 ;
+	setAttr ".tk[26]" -type "float3" 0 0.043798193 0.21467112 ;
+	setAttr ".tk[27]" -type "float3" 0 0.069987603 0.21467112 ;
+	setAttr ".tk[28]" -type "float3" 0 0 0.21467112 ;
+	setAttr ".tk[29]" -type "float3" 0 0 0.21467112 ;
+	setAttr ".tk[30]" -type "float3" 0 0.069987603 0.067214072 ;
+	setAttr ".tk[31]" -type "float3" 0 0.043798193 0.067214072 ;
+	setAttr ".tk[32]" -type "float3" 0 0 0.067214072 ;
+	setAttr ".tk[33]" -type "float3" 0 0 0.067214072 ;
+	setAttr ".tk[34]" -type "float3" 0 0 0.067214072 ;
+	setAttr ".tk[35]" -type "float3" 0 0 0.067214072 ;
+	setAttr ".tk[36]" -type "float3" 0 0.043798193 0.067214072 ;
+	setAttr ".tk[37]" -type "float3" 0 0.069987603 0.067214072 ;
+	setAttr ".tk[38]" -type "float3" 0 0 0.067214072 ;
+	setAttr ".tk[39]" -type "float3" 0 0 0.067214072 ;
+	setAttr ".tk[40]" -type "float3" 0 0.069987603 0.047706369 ;
+	setAttr ".tk[41]" -type "float3" 0 0.043798193 0.047706369 ;
+	setAttr ".tk[42]" -type "float3" 0 0 0.047706366 ;
+	setAttr ".tk[43]" -type "float3" 0 0 0.047706366 ;
+	setAttr ".tk[44]" -type "float3" 0 0 0.047706366 ;
+	setAttr ".tk[45]" -type "float3" 0 0 0.047706366 ;
+	setAttr ".tk[46]" -type "float3" 0 0.043798193 0.047706369 ;
+	setAttr ".tk[47]" -type "float3" 0 0.069987603 0.047706369 ;
+	setAttr ".tk[48]" -type "float3" 0 0 0.047706369 ;
+	setAttr ".tk[49]" -type "float3" 0 0 0.047706369 ;
+	setAttr ".tk[50]" -type "float3" 0 0.069987603 0.098742612 ;
+	setAttr ".tk[51]" -type "float3" 0 0.043798193 0.098742612 ;
+	setAttr ".tk[52]" -type "float3" 0 0 0.098742619 ;
+	setAttr ".tk[53]" -type "float3" 0 0 0.098742619 ;
+	setAttr ".tk[54]" -type "float3" 0 0 0.098742619 ;
+	setAttr ".tk[55]" -type "float3" 0 0 0.098742619 ;
+	setAttr ".tk[56]" -type "float3" 0 0.043798193 0.098742612 ;
+	setAttr ".tk[57]" -type "float3" 0 0.069987603 0.098742612 ;
+	setAttr ".tk[58]" -type "float3" 0 0 0.098742612 ;
+	setAttr ".tk[59]" -type "float3" 0 0 0.098742612 ;
+createNode polyCube -n "polyCube2";
+	rename -uid "E0400AA7-46A8-DD2F-FABE-D096B3863F04";
+	setAttr ".cuv" 4;
+createNode polyMergeVert -n "polyMergeVert1";
+	rename -uid "7879CF18-4298-8B21-414F-FCBB712C2A67";
+	setAttr ".ics" -type "componentList" 1 "vtx[2:3]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 9.0919782283842601 0 0.026601314544677734 4.5228118896484375 1.6298790931701668 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak3";
+	rename -uid "EF07C403-4ACE-8330-778C-1B890F1ADFA0";
+	setAttr ".uopa" yes;
+	setAttr -s 2 ".tk[2:3]" -type "float3"  0.5 0 0 -0.5 0 0;
+createNode polyMergeVert -n "polyMergeVert2";
+	rename -uid "07B8FC9A-4E0D-BA14-144D-0FAEA3307BEA";
+	setAttr ".ics" -type "componentList" 1 "vtx[3:4]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 9.0919782283842601 0 0.026601314544677734 4.5228118896484375 1.6298790931701668 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak4";
+	rename -uid "963DEF43-4A5E-1424-7789-199766793032";
+	setAttr ".uopa" yes;
+	setAttr -s 3 ".tk[3:4]" -type "float3"  0.5 0 0 -0.5 0 0;
+createNode polyExtrudeFace -n "polyExtrudeFace2";
+	rename -uid "64087233-4F49-8F10-2800-97AA3E340FCF";
+	setAttr ".ics" -type "componentList" 1 "f[2]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 9.0919782283842601 0 0.026601314544677734 4.5228118896484375 1.6298790931701668 1;
+	setAttr ".ws" yes;
+	setAttr ".pvt" -type "float3" -1.4539801 4.0228119 1.6298791 ;
+	setAttr ".rs" 65055;
+	setAttr ".c[0]"  0 1 1;
+	setAttr ".cbn" -type "double3" -5.9120163917541504 4.0228118896484375 -2.9161100210219635 ;
+	setAttr ".cbx" -type "double3" 3.0040562152862549 4.0228118896484375 6.1758682073622966 ;
+	setAttr ".raf" no;
+createNode polyTweak -n "polyTweak5";
+	rename -uid "9F6F1A03-4D97-B35C-7582-D5864CEE0B74";
+	setAttr ".uopa" yes;
+	setAttr -s 6 ".tk[0:5]" -type "float3"  -5.43861771 -2.3094027e-11
+		 4.9307225e-12 2.4774549 -2.3094027e-11 4.9307225e-12 -1.33913636 1.23994946 4.9307225e-12
+		 -1.33913636 1.23994946 -4.9307225e-12 -5.43861771 -2.3094027e-11 -4.9307225e-12 2.4774549
+		 -2.3094027e-11 -4.9307225e-12;
+createNode polyExtrudeFace -n "polyExtrudeFace3";
+	rename -uid "DC8D569A-4F1A-E1EA-3A5E-99968DADB479";
+	setAttr ".ics" -type "componentList" 1 "f[2]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 9.0919782283842601 0 0.026601314544677734 4.5228118896484375 1.6298790931701668 1;
+	setAttr ".ws" yes;
+	setAttr ".pvt" -type "float3" -1.45398 4.0228119 1.6298791 ;
+	setAttr ".rs" 60323;
+	setAttr ".c[0]"  0 1 1;
+	setAttr ".cbn" -type "double3" -5.6479768753051758 4.0228118896484375 -2.9161100210219635 ;
+	setAttr ".cbx" -type "double3" 2.7400169372558594 4.0228118896484375 6.1758682073622966 ;
+	setAttr ".raf" no;
+createNode polyTweak -n "polyTweak6";
+	rename -uid "6A62464E-40BC-69F1-D6F0-38BB5237BAD5";
+	setAttr ".uopa" yes;
+	setAttr -s 5 ".tk";
+	setAttr ".tk[6]" -type "float3" 0.2640394 0 4.9307225e-12 ;
+	setAttr ".tk[7]" -type "float3" -0.2640394 0 4.9307225e-12 ;
+	setAttr ".tk[8]" -type "float3" -0.2640394 0 -4.9307225e-12 ;
+	setAttr ".tk[9]" -type "float3" 0.2640394 0 -4.9307225e-12 ;
+createNode polyTweak -n "polyTweak7";
+	rename -uid "6BB6610D-422F-C5F3-D69A-0CBFE72CB860";
+	setAttr ".uopa" yes;
+	setAttr -s 7 ".tk";
+	setAttr ".tk[10]" -type "float3" 1.6758583 0.14246842 0 ;
+	setAttr ".tk[11]" -type "float3" -1.6758583 0.14246842 0 ;
+	setAttr ".tk[12]" -type "float3" -1.6758583 0.14246842 0 ;
+	setAttr ".tk[13]" -type "float3" 1.6758583 0.14246842 0 ;
+createNode deleteComponent -n "deleteComponent1";
+	rename -uid "74728F1A-43F2-90EF-0024-BBBBCC5AB6D2";
+	setAttr ".dc" -type "componentList" 1 "f[0:1]";
+createNode polyMergeVert -n "polyMergeVert3";
+	rename -uid "387B24FF-4BE1-7703-5EC7-008D2ECC1EC3";
+	setAttr ".ics" -type "componentList" 1 "vtx[10:11]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 9.0919782283842601 0 0.026601314544677734 4.5228118896484375 1.6298790931701668 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak8";
+	rename -uid "28375C5E-4B1D-BDA8-5A37-F993ABEA124F";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk[10:13]" -type "float3"  2.51813865 0.60757029 0 -2.51813865
+		 0.60757029 0 0 0.60757029 0 0 0.60757029 0;
+createNode polyMergeVert -n "polyMergeVert4";
+	rename -uid "F5E9385F-4E77-4847-F8C2-3DB19E022883";
+	setAttr ".ics" -type "componentList" 1 "vtx[11:12]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 9.0919782283842601 0 0.026601314544677734 4.5228118896484375 1.6298790931701668 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak9";
+	rename -uid "69E9E267-41CA-182E-88FD-6FB8B6CD6066";
+	setAttr ".uopa" yes;
+	setAttr -s 3 ".tk[11:12]" -type "float3"  -2.51813865 0 0 2.51813865
+		 0 0;
+createNode polyTweak -n "polyTweak10";
+	rename -uid "1D63202A-4BAA-8B23-52F5-2A9989DE5989";
+	setAttr ".uopa" yes;
+	setAttr -s 3 ".tk";
+	setAttr ".tk[10]" -type "float3" 0.14144492 1.2740048 0 ;
+	setAttr ".tk[11]" -type "float3" 0.14144492 1.2740048 0 ;
+createNode deleteComponent -n "deleteComponent2";
+	rename -uid "6132F691-4233-365B-8912-A986FBA69AE9";
+	setAttr ".dc" -type "componentList" 2 "f[6]" "f[8]";
+createNode deleteComponent -n "deleteComponent3";
+	rename -uid "6422E286-4D8A-AF88-2CEA-CCB7C73742E1";
+	setAttr ".dc" -type "componentList" 2 "f[2]" "f[4]";
+createNode polyBridgeEdge -n "polyBridgeEdge1";
+	rename -uid "688A9384-4559-049F-329B-B58778F5DE18";
+	setAttr ".ics" -type "componentList" 2 "e[4]" "e[14]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 9.0919782283842601 0 0.026601314544677734 4.5228118896484375 1.6298790931701668 1;
+	setAttr ".c[0]"  0 1 1;
+	setAttr ".dv" 0;
+	setAttr ".sv1" 3;
+	setAttr ".sv2" 7;
+	setAttr ".d" 1;
+createNode polyBridgeEdge -n "polyBridgeEdge2";
+	rename -uid "7A2EF9E4-48B6-535B-81C4-029BB0FF84D7";
+	setAttr ".ics" -type "componentList" 2 "e[3]" "e[13]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 9.0919782283842601 0 0.026601314544677734 4.5228118896484375 1.6298790931701668 1;
+	setAttr ".c[0]"  0 1 1;
+	setAttr ".dv" 0;
+	setAttr ".sv1" 4;
+	setAttr ".sv2" 10;
+	setAttr ".d" 1;
+createNode polyBridgeEdge -n "polyBridgeEdge3";
+	rename -uid "0FDCE46E-4C5B-5EF4-7EE0-D28F541971A2";
+	setAttr ".ics" -type "componentList" 2 "e[1]" "e[15]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 9.0919782283842601 0 0.026601314544677734 4.5228118896484375 1.6298790931701668 1;
+	setAttr ".c[0]"  0 1 1;
+	setAttr ".dv" 0;
+	setAttr ".sv1" 1;
+	setAttr ".sv2" 11;
+	setAttr ".d" 1;
+createNode polyBridgeEdge -n "polyBridgeEdge4";
+	rename -uid "79474443-400E-EEDB-0B7F-F981493D777E";
+	setAttr ".ics" -type "componentList" 2 "e[0]" "e[17]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 9.0919782283842601 0 0.026601314544677734 4.5228118896484375 1.6298790931701668 1;
+	setAttr ".c[0]"  0 1 1;
+	setAttr ".dv" 0;
+	setAttr ".sv1" 2;
+	setAttr ".sv2" 9;
+	setAttr ".d" 1;
+createNode polySplitRing -n "polySplitRing5";
+	rename -uid "87F49ADF-4CF9-FB9C-21B1-55A07EAA3C0C";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 9 "e[0:9]" "e[43]" "e[53]" "e[62]" "e[72]" "e[81]" "e[91]" "e[100]" "e[110]";
+	setAttr ".ix" -type "matrix" 5.6895955323792755 0 0 0 0 3.8186880361944477 0 0 0 0 8.2998278430854526 0
+		 -2.3181966456757603 1.5168625887419518 2.6449468001538801 1;
+	setAttr ".wt" 0.61660867929458618;
+	setAttr ".dr" no;
+	setAttr ".re" 3;
+	setAttr ".sma" 29.999999999999996;
+	setAttr ".p[0]"  0 0 1;
+	setAttr ".fq" yes;
+createNode polyTweak -n "polyTweak11";
+	rename -uid "CB69F6E1-4097-E165-E467-9593575F959D";
+	setAttr ".uopa" yes;
+	setAttr -s 49 ".tk";
+	setAttr ".tk[4]" -type "float3" 0 -0.043851014 0 ;
+	setAttr ".tk[5]" -type "float3" 0 -0.043851014 0 ;
+	setAttr ".tk[14]" -type "float3" 0 -0.043851014 0 ;
+	setAttr ".tk[15]" -type "float3" 0 -0.043851014 0 ;
+	setAttr ".tk[21]" -type "float3" 0 -0.043851014 0 ;
+	setAttr ".tk[26]" -type "float3" 0 -0.043851014 0 ;
+	setAttr ".tk[30]" -type "float3" 0 0 -0.063602872 ;
+	setAttr ".tk[31]" -type "float3" 0 -0.043851014 -0.063602872 ;
+	setAttr ".tk[32]" -type "float3" 0 0 -0.063602872 ;
+	setAttr ".tk[33]" -type "float3" 0 0 -0.063602872 ;
+	setAttr ".tk[34]" -type "float3" 0 0 -0.063602872 ;
+	setAttr ".tk[35]" -type "float3" 0 0 -0.063602872 ;
+	setAttr ".tk[36]" -type "float3" 0 -0.043851014 -0.063602872 ;
+	setAttr ".tk[37]" -type "float3" 0 0 -0.063602872 ;
+	setAttr ".tk[38]" -type "float3" 0 0 -0.063602872 ;
+	setAttr ".tk[39]" -type "float3" 0 0 -0.063602872 ;
+	setAttr ".tk[40]" -type "float3" 0 0 -0.12414151 ;
+	setAttr ".tk[41]" -type "float3" 0 -0.043851014 -0.12414151 ;
+	setAttr ".tk[42]" -type "float3" 0 0 -0.12414151 ;
+	setAttr ".tk[43]" -type "float3" 0 0 -0.12414151 ;
+	setAttr ".tk[44]" -type "float3" 0 0 -0.12414151 ;
+	setAttr ".tk[45]" -type "float3" 0 0 -0.12414151 ;
+	setAttr ".tk[46]" -type "float3" 0 -0.043851014 -0.12414151 ;
+	setAttr ".tk[47]" -type "float3" 0 0 -0.12414151 ;
+	setAttr ".tk[48]" -type "float3" 0 0 -0.12414151 ;
+	setAttr ".tk[49]" -type "float3" 0 0 -0.12414151 ;
+	setAttr ".tk[50]" -type "float3" 0 0 -0.12414151 ;
+	setAttr ".tk[51]" -type "float3" 0 -0.043851014 -0.12414151 ;
+	setAttr ".tk[52]" -type "float3" 0 0 -0.12414151 ;
+	setAttr ".tk[53]" -type "float3" 0 0 -0.12414151 ;
+	setAttr ".tk[54]" -type "float3" 0 0 -0.12414151 ;
+	setAttr ".tk[55]" -type "float3" 0 0 -0.12414151 ;
+	setAttr ".tk[56]" -type "float3" 0 -0.043851014 -0.12414151 ;
+	setAttr ".tk[57]" -type "float3" 0 0 -0.12414151 ;
+	setAttr ".tk[58]" -type "float3" 0 0 -0.12414151 ;
+	setAttr ".tk[59]" -type "float3" 0 0 -0.12414151 ;
+	setAttr ".tk[60]" -type "float3" 0.4278436 0 0 ;
+	setAttr ".tk[61]" -type "float3" 0.4278436 0 -0.12414151 ;
+	setAttr ".tk[62]" -type "float3" 0.4278436 0 0 ;
+	setAttr ".tk[63]" -type "float3" 0.4278436 0 -0.12414151 ;
+	setAttr ".tk[64]" -type "float3" 0.4278436 0 0 ;
+	setAttr ".tk[65]" -type "float3" 0.4278436 0 0 ;
+	setAttr ".tk[66]" -type "float3" 0.4278436 0 0 ;
+	setAttr ".tk[67]" -type "float3" 0.4278436 0 0 ;
+	setAttr ".tk[68]" -type "float3" 0.4278436 0 -0.063602872 ;
+	setAttr ".tk[69]" -type "float3" 0.4278436 0 -0.063602872 ;
+	setAttr ".tk[70]" -type "float3" 0.4278436 0 -0.12414151 ;
+	setAttr ".tk[71]" -type "float3" 0.4278436 0 -0.12414151 ;
+createNode polyCube -n "polyCube3";
+	rename -uid "2425646D-4576-286A-DDE8-C9AFAB846CDA";
+	setAttr ".cuv" 4;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "C17C504D-40D7-B6D0-18AD-2CB6329056C5";
+	rename -uid "B21B8F1B-4518-1307-8535-03A7591C1339";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 59;
@@ -60829,7 +61366,7 @@ select -ne :standardSurface1;
 	setAttr ".bc" -type "float3" 0.40000001 0.40000001 0.40000001 ;
 	setAttr ".sr" 0.5;
 select -ne :initialShadingGroup;
-	setAttr -s 398 ".dsm";
+	setAttr -s 400 ".dsm";
 	setAttr ".ro" yes;
 	setAttr -s 23 ".gn";
 select -ne :initialParticleSE;
@@ -60933,6 +61470,9 @@ connectAttr ":initialShadingGroup.mwc" "|Truck|Dashboard|Speedometers|Speedomete
 		;
 connectAttr "SkyDomeLayer.di" "aiSkyDomeLight1.do";
 connectAttr "aiPhysicalSky1.out" "aiSkyDomeLightShape1.sc";
+connectAttr "polySplitRing5.out" "CabinFrameShape.i";
+connectAttr "polyBridgeEdge4.out" "RoofShape.i";
+connectAttr "polyCube3.out" "RoofTileShape1.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
@@ -61012,6 +61552,52 @@ connectAttr "lambert2SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni
 connectAttr "DirtGroundColor.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
 		;
 connectAttr "layerManager.dli[5]" "Camera2.id";
+connectAttr "polyTweak1.out" "polySplitRing1.ip";
+connectAttr "CabinFrameShape.wm" "polySplitRing1.mp";
+connectAttr "polyCube1.out" "polyTweak1.ip";
+connectAttr "polySplitRing1.out" "polySplitRing2.ip";
+connectAttr "CabinFrameShape.wm" "polySplitRing2.mp";
+connectAttr "polySplitRing2.out" "polySplitRing3.ip";
+connectAttr "CabinFrameShape.wm" "polySplitRing3.mp";
+connectAttr "polySplitRing3.out" "polySplitRing4.ip";
+connectAttr "CabinFrameShape.wm" "polySplitRing4.mp";
+connectAttr "polyTweak2.out" "polyExtrudeFace1.ip";
+connectAttr "CabinFrameShape.wm" "polyExtrudeFace1.mp";
+connectAttr "polySplitRing4.out" "polyTweak2.ip";
+connectAttr "polyTweak3.out" "polyMergeVert1.ip";
+connectAttr "RoofShape.wm" "polyMergeVert1.mp";
+connectAttr "polyCube2.out" "polyTweak3.ip";
+connectAttr "polyTweak4.out" "polyMergeVert2.ip";
+connectAttr "RoofShape.wm" "polyMergeVert2.mp";
+connectAttr "polyMergeVert1.out" "polyTweak4.ip";
+connectAttr "polyTweak5.out" "polyExtrudeFace2.ip";
+connectAttr "RoofShape.wm" "polyExtrudeFace2.mp";
+connectAttr "polyMergeVert2.out" "polyTweak5.ip";
+connectAttr "polyTweak6.out" "polyExtrudeFace3.ip";
+connectAttr "RoofShape.wm" "polyExtrudeFace3.mp";
+connectAttr "polyExtrudeFace2.out" "polyTweak6.ip";
+connectAttr "polyExtrudeFace3.out" "polyTweak7.ip";
+connectAttr "polyTweak7.out" "deleteComponent1.ig";
+connectAttr "polyTweak8.out" "polyMergeVert3.ip";
+connectAttr "RoofShape.wm" "polyMergeVert3.mp";
+connectAttr "deleteComponent1.og" "polyTweak8.ip";
+connectAttr "polyTweak9.out" "polyMergeVert4.ip";
+connectAttr "RoofShape.wm" "polyMergeVert4.mp";
+connectAttr "polyMergeVert3.out" "polyTweak9.ip";
+connectAttr "polyMergeVert4.out" "polyTweak10.ip";
+connectAttr "polyTweak10.out" "deleteComponent2.ig";
+connectAttr "deleteComponent2.og" "deleteComponent3.ig";
+connectAttr "deleteComponent3.og" "polyBridgeEdge1.ip";
+connectAttr "RoofShape.wm" "polyBridgeEdge1.mp";
+connectAttr "polyBridgeEdge1.out" "polyBridgeEdge2.ip";
+connectAttr "RoofShape.wm" "polyBridgeEdge2.mp";
+connectAttr "polyBridgeEdge2.out" "polyBridgeEdge3.ip";
+connectAttr "RoofShape.wm" "polyBridgeEdge3.mp";
+connectAttr "polyBridgeEdge3.out" "polyBridgeEdge4.ip";
+connectAttr "RoofShape.wm" "polyBridgeEdge4.mp";
+connectAttr "polyTweak11.out" "polySplitRing5.ip";
+connectAttr "CabinFrameShape.wm" "polySplitRing5.mp";
+connectAttr "polyExtrudeFace1.out" "polyTweak11.ip";
 connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "lambert1SG.pa" ":renderPartition.st" -na;
 connectAttr "DirtGroundColor.msg" ":defaultShaderList1.s" -na;
@@ -61034,9 +61620,9 @@ connectAttr "StairSteps_WB3Shape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "StairSteps_WB4Shape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "StairCaseRailing_WB3Shape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "StairCaseRailing_WB4Shape.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "StairRailPost_WB5Shape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "RoofSupportBeam01Shape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "StairCaseRailing_WB5Shape.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "StairRailPost_WB6Shape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "RoofSupportBeam02Shape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "DontMoveShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "ChimneyBarrelShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "ChimneyTopShape.iog" ":initialShadingGroup.dsm" -na;
@@ -61625,13 +62211,15 @@ connectAttr "TruckStepStoolShape1.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "TrunkWheelFrame02Shape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "TruckStepStoolShape2.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "TruckBedFloorShape.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "HouseFoundationShape.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pCubeShape2.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pCubeShape3.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pCubeShape5.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pCubeShape6.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pConeShape1.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pCylinderShape2.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "CabinFrameShape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "RoofShape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "RoofSupportBeam03Shape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "RoofTileShape1.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "RoofTileShape139.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "RoofTileShape140.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "RoofTileShape141.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "RoofTileShape142.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "RoofTileShape143.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "groupId1.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId14.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId15.msg" ":initialShadingGroup.gn" -na;
